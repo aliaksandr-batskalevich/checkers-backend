@@ -1,0 +1,21 @@
+{
+  "name": "checkers-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "https://github.com/aliaksandr-batskalevich/checkers-backend.git",
+  "author": "”Aliaksandr-Batskalevich” <aliaksandr.batskalevich@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.15.0",
+    "jsonwebtoken": "^9.0.0",
+    "nodemon": "^2.0.21",
+    "pg": "^8.10.0"
+  }
+}
