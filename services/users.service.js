@@ -1,5 +1,5 @@
 import DAL from '../db/dal.js';
-import {userToSendMaker} from "../utils/utils.js";
+import {userDtoMaker} from "../utils/utils.js";
 
 class UsersService {
     async getUserById(id) {
@@ -9,7 +9,7 @@ class UsersService {
                 return {status: 400, message: `No users with this ID!`, data: null};
             }
 
-            const userToSend = userToSendMaker(user);
+            const userToSend = userDtoMaker(user);
 
             return {
                 status: 200,
@@ -25,7 +25,7 @@ class UsersService {
     async getAllUsers() {
         try {
             const users = await DAL.getAllUsers();
-            const usersToSend = users.map(userToSendMaker);
+            const usersToSend = users.map(userDtoMaker);
 
             return {
                 status: 200,

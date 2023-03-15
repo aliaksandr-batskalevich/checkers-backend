@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/checkers-backend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/users.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/auth.middleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/authValidate.middleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/isMyAccount.middleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/usersIdValidate.middleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/auth.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/users.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/auth.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/users.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/validators/auth.validator.js" afterDir="false" />
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Added auth and users endpoints.">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/token.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/dal.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/dataBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/dataBase.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/descriptions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/descriptions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/auth.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/auth.middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/auth.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/auth.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validators/auth.validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/validators/auth.validator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -64,12 +61,31 @@
       <option name="presentableId" value="Default" />
       <updated>1678727668518</updated>
       <workItem from="1678727681600" duration="5135000" />
-      <workItem from="1678782950793" duration="24664000" />
+      <workItem from="1678782950793" duration="26263000" />
+      <workItem from="1678893069574" duration="10915000" />
     </task>
+    <task id="LOCAL-00001" summary="Added auth and users endpoints.">
+      <created>1678817883694</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678817883694</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added auth and users endpoints.">
+      <created>1678818005354</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678818005354</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -82,5 +98,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added auth and users endpoints." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added auth and users endpoints." />
   </component>
 </project>

@@ -1,8 +1,7 @@
 import jwt from "jsonwebtoken";
-import config from "../config.js";
 
 
-const authMiddleware = async (req, res, next) => {
+const authMiddleware = (req, res, next) => {
     if (req.method === 'OPTION') {
         next();
     }
@@ -15,7 +14,7 @@ const authMiddleware = async (req, res, next) => {
 
         // if the token is not valid - the method VERIFY will generate an error
         // and the catch will work
-        const decodedPayload = jwt.verify(tokenReq, config.secretKey);
+        const decodedPayload = jwt.verify(tokenReq, process.env.JWT_ACCESS_SECRET);
         req.userId = decodedPayload.id;
 
         next();

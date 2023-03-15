@@ -1,6 +1,9 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import authRouter from './routers/auth.router.js';
 import usersRouter from './routers/users.router.js';
+
+dotenv.config();
 
 const PORT = process.env.PORT || 8080;
 

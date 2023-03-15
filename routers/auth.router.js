@@ -6,8 +6,9 @@ import authValidateMiddleware from "../middlewares/authValidate.middleware.js";
 const router = new Router();
 
 const registrationValidators = [
-  authValidator.getUsernameRegistrationValidator(),
-  authValidator.getPasswordRegistrationValidator()
+    authValidator.getUsernameRegistrationValidator(),
+    authValidator.getPasswordRegistrationValidator(),
+    authValidator.getEmailRegistrationValidator()
 ];
 const loginValidators = [
     authValidator.getUsernameLoginValidator(),
@@ -23,5 +24,7 @@ router.post('/login',
     loginValidators,
     authValidateMiddleware,
     authController.login);
+
+router.delete('/logout', authController.logout)
 
 export default router;

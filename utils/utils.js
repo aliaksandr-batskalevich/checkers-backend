@@ -1,11 +1,4 @@
-import jwt from 'jsonwebtoken';
-
-export const generateAccessToken = (id, secretKey, expiresIn) => {
-    const payload = {id};
-    return jwt.sign(payload, secretKey, {expiresIn: expiresIn});
-};
-
-export const userToSendMaker = (user) => {
-    const {password, ...rest} = user;
+export const userDtoMaker = (user) => {
+    const {password, email, activation_link, refresh_token, is_activated,   ...rest} = user;
     return rest;
 };

@@ -9,6 +9,10 @@ class AuthValidator {
         return check('password', 'Password must be between 4 and 10 characters long!').isLength({min: 4, max: 10})
     }
 
+    getEmailRegistrationValidator() {
+        return check('email', 'Incorrect email address!').isEmail();
+    }
+
     getUsernameLoginValidator() {
         return check('username', 'Username is required').notEmpty();
     }
