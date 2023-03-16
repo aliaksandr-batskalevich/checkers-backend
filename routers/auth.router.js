@@ -25,6 +25,9 @@ router.post('/login',
     authValidateMiddleware,
     authController.login);
 
+router.get('/activate/:link',
+    authController.activateAccount);
+
 router.delete('/logout', authController.logout)
 
 export default router;

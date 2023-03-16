@@ -2,6 +2,7 @@ import bcrypt from 'bcryptjs';
 import DAL from '../db/dal.js';
 import tokenService from './token.service.js';
 import {v4} from 'uuid';
+import mailService from './mail.service.js';
 
 
 class AuthService {
@@ -23,6 +24,12 @@ class AuthService {
             const activationLink = v4();
 
             const createdUser = await DAL.registrationUser(username, hashPassword, email, activationLink);
+
+            const resActivationLink = `${process.env.API_URL}/api/auth/activate/${activationLink}`;
+            const sendResult = await mailService.sendActivationMail(email, resActivationLink);
+            if (sendResult.status < 200 || sendResult.status > 299) {
+                return {...sendResult, message: `Some server error!`, data: null}
+            }
 
             const tokens = tokenService.generateTokens({id: createdUser.id});
             const result = await tokenService.refreshToken(createdUser.id, tokens.refreshToken);
@@ -66,6 +73,23 @@ class AuthService {
         } catch (e) {
             console.log(e);
             return {status: 500, message: `Some server error!`, token: null};
+        }
+    }
+
+    async activateAccount(activationLink) {
+        try {
+            const userFromDb = await DAL.getUserByActivationLink(activationLink);
+
+            if (!userFromDb) {
+                return {status: 400, message: `Incorrect activation link!`}
+            }
+
+            await DAL.activateAccount(activationLink);
+
+            return {status: 200, message: `Success!`};
+
+        } catch (e) {
+            return {status: 500, message: `Some server error!`};
         }
     }
 

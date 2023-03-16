@@ -24,6 +24,15 @@ class DAL {
         return result.rows[0];
     }
 
+    async getUserByActivationLink(activationLink) {
+        const result = await db.query(`SELECT * FROM users WHERE activation_link = $1`, [activationLink]);
+        return result.rows[0];
+    }
+
+    async activateAccount(activationLink) {
+       await db.query(`UPDATE users SET is_activated = true WHERE activation_link = $1`, [activationLink]);
+    }
+
     async getAllUsers() {
         const result = await db.query(`SELECT * FROM users`);
         return result.rows;
