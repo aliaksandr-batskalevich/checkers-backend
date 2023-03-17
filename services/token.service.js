@@ -1,24 +1,50 @@
 import jwt from "jsonwebtoken";
 import DAL from '../db/dal.js';
+import {ApiError} from '../exceptions/ApiError.js';
 
 class TokenService {
     generateTokens(payload) {
-        const accessTokenExpire = (process.env.JWT_ACCESS_TOKEN_EXPIRE_MIN || 30) + 'm';
-        const refreshTokenExpire = (process.env.JWT_REFRESH_TOKEN_EXPAIR || 30) + 'd';
+        const accessTokenExpire = process.env.JWT_ACCESS_TOKEN_EXPIRE_MIN + 'm';
+        const refreshTokenExpire = process.env.JWT_REFRESH_TOKEN_EXPIRE_DAY + 'd';
 
         const accessToken = jwt.sign(payload, process.env.JWT_ACCESS_SECRET, {expiresIn: accessTokenExpire});
         const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET, {expiresIn: refreshTokenExpire});
         return {accessToken, refreshToken};
     }
 
+    verifyAccessToken(accessToken) {
+        try {
+            // if the token is not valid - the method VERIFY will generate an error
+            // and the catch will work
+            const payload = jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET);
+            return payload;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    verifyRefreshToken(refreshToken) {
+        try {
+            // if the token is not valid - the method VERIFY will generate an error
+            // and the catch will work
+            const tokenPayload = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
+            return tokenPayload;
+        } catch (e) {
+            return null;
+        }
+    }
+
     async refreshToken(userId, refreshToken) {
         const user = await DAL.getUserById(userId);
         if (!user) {
-            return {status: 500, message: `Server error! User with this ID not found (refreshToken)!`};
+            throw ApiError.ServerError(`Server error! User with this ID not found (refreshToken)!`);
         }
 
         await DAL.refreshUsersToken(userId, refreshToken);
-        return {status: 200, message: `Refresh token updated!`};
+    }
+
+    async removeToken(refreshToken) {
+        await DAL.removeUsersToken(refreshToken);
     }
 }
 

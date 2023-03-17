@@ -1,8 +1,15 @@
+import {ApiError} from '../exceptions/ApiError.js';
+
 const isMyAccountMiddleware = (req, res, next) => {
-    if (req.userId !== +req.params.id) {
-        return res.status(403).json({message: `Access denied!`});
+    try {
+        if (req.userId !== +req.params.id) {
+            throw ApiError.ForbiddenError(`Access denied!`);
+        }
+
+        next();
+    } catch (e) {
+        next(e);
     }
-    next();
 };
 
 export default isMyAccountMiddleware;

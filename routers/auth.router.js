@@ -1,33 +1,32 @@
 import {Router} from "express";
 import authController from '../controllers/auth.controller.js';
 import authValidator from '../validators/auth.validator.js';
-import authValidateMiddleware from "../middlewares/authValidate.middleware.js";
+import validateMiddleware from "../middlewares/validate.middleware.js";
+import isAuthMiddleware from "../middlewares/isAuth.middleware.js";
 
 const router = new Router();
 
-const registrationValidators = [
+router.post('/registration',
     authValidator.getUsernameRegistrationValidator(),
     authValidator.getPasswordRegistrationValidator(),
-    authValidator.getEmailRegistrationValidator()
-];
-const loginValidators = [
-    authValidator.getUsernameLoginValidator(),
-    authValidator.getPasswordLoginValidator()
-];
-
-router.post('/registration',
-    registrationValidators,
-    authValidateMiddleware,
+    authValidator.getEmailRegistrationValidator(),
+    validateMiddleware,
     authController.registration);
 
 router.post('/login',
-    loginValidators,
-    authValidateMiddleware,
+    authValidator.getUsernameLoginValidator(),
+    authValidator.getPasswordLoginValidator(),
+    validateMiddleware,
     authController.login);
 
 router.get('/activate/:link',
     authController.activateAccount);
 
-router.delete('/logout', authController.logout)
+router.get('/refresh',
+    authController.refreshToken);
+
+router.delete('/logout',
+    isAuthMiddleware,
+    authController.logout)
 
 export default router;

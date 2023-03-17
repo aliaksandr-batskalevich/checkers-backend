@@ -29,6 +29,11 @@ class DAL {
         return result.rows[0];
     }
 
+    async getUserByRefreshToken(refreshToken) {
+        const result = await db.query(`SELECT * FROM users WHERE refresh_token = $1`, [refreshToken]);
+        return result.rows[0];
+    }
+
     async activateAccount(activationLink) {
        await db.query(`UPDATE users SET is_activated = true WHERE activation_link = $1`, [activationLink]);
     }
@@ -45,6 +50,10 @@ class DAL {
 
     async refreshUsersToken(userId, refreshToken) {
         await db.query(`UPDATE users SET refresh_token = $2 WHERE id = $1`, [userId, refreshToken]);
+    }
+
+    async removeUsersToken(refreshToken) {
+        await db.query(`UPDATE users SET refresh_token = null WHERE refresh_token = $1`, [refreshToken]);
     }
 
 }

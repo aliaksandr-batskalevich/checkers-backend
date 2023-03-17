@@ -2,11 +2,11 @@ import {check} from "express-validator";
 
 class AuthValidator {
     getUsernameRegistrationValidator() {
-        return check('username', 'Username must be between 4 and 15 characters long!').isLength({min: 4, max: 15});
+        return check('username', 'Username must be between 4 and 15 characters long string!').isString().isLength({min: 4, max: 15});
     }
 
     getPasswordRegistrationValidator() {
-        return check('password', 'Password must be between 4 and 10 characters long!').isLength({min: 4, max: 10})
+        return check('password', 'Password must be between 4 and 10 characters long string!').isString().isLength({min: 4, max: 10});
     }
 
     getEmailRegistrationValidator() {

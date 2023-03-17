@@ -1,9 +1,15 @@
+import {ApiError} from '../exceptions/ApiError.js';
+
 const usersIdValidateMiddleware = (req, res, next) => {
-    const id = req.params.id;
-    if (!Number.isFinite(+id)) {
-        return res.status(400).json({message: `ID must be a number!`});
+    try {
+        const id = req.params.id;
+        if (!Number.isFinite(+id)) {
+            throw ApiError.BadRequestError(`ID must be a number!`);
+        }
+        next();
+    } catch (e) {
+        next(e);
     }
-    next();
 };
 
 export default usersIdValidateMiddleware;

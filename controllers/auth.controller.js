@@ -4,14 +4,9 @@ import dotenv from "dotenv";
 dotenv.config();
 
 class AuthController {
-    async registration(req, res) {
+    async registration(req, res, next) {
         try {
-            const result = await authService.registration(req.body);
-            const {status, message, data} = result;
-
-            if (status < 200 || status > 299) {
-                return res.status(status).json({message});
-            }
+            const {message, data} = await authService.registration(req.body);
 
             const maxCookieAge = (process.env.JWT_REFRESH_TOKEN_EXPIRE_DAY || 30) * 24 * 60 * 60 * 1000;
             res.cookie('refreshToken', data.tokens.refreshToken, {maxAge: maxCookieAge, httpOnly: true});
@@ -19,47 +14,59 @@ class AuthController {
             res.json({message, data});
 
         } catch (e) {
-            console.log(e);
-            res.status(500).json({message: `Some server error!`});
+            next(e);
         }
     }
 
-    async login(req, res) {
+    async login(req, res, next) {
         try {
-            const result = await authService.login(req.body);
-            const {status, message, data} = result;
+            const {message, data} = await authService.login(req.body);
 
-            if (status < 200 || status > 299) {
-                return res.status(status).json({message});
-            }
+            const maxCookieAge = (process.env.JWT_REFRESH_TOKEN_EXPIRE_DAY || 30) * 24 * 60 * 60 * 1000;
+            res.cookie('refreshToken', data.tokens.refreshToken, {maxAge: maxCookieAge, httpOnly: true});
 
             res.json({message, data});
 
         } catch (e) {
-            console.log(e);
-            res.status(500).json({message: `Some server error!`});
+            next(e);
         }
     }
 
-    async activateAccount(req, res) {
+    async activateAccount(req, res, next) {
         try {
-            const result = await authService.activateAccount(req.params.link);
-            const {status, message} = result;
+            await authService.activateAccount(req.params.link);
 
-            if (status < 200 || status > 299) {
-                return res.status(status).json({message});
-            }
-
-            res.redirect(process.env.CLIENT_URL)
+            res.redirect(process.env.CLIENT_URL);
 
         } catch (e) {
-            console.log(e);
-            res.status(500).json({message: `Some server error!`});
+            next(e);
         }
     }
 
-    async logout(req, res) {
+    async refreshToken(req, res, next) {
+        try {
+            const {refreshToken} = req.cookies;
+            const {message, data} = await authService.refreshToken(refreshToken);
 
+            const maxCookieAge = (process.env.JWT_REFRESH_TOKEN_EXPIRE_DAY || 30) * 24 * 60 * 60 * 1000;
+            res.cookie('refreshToken', data.tokens.refreshToken, {maxAge: maxCookieAge, httpOnly: true});
+
+            res.json({message, data})
+
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    async logout(req, res, next) {
+        try {
+            const {refreshToken} = req.cookies;
+            await authService.logout(refreshToken);
+            res.clearCookie('refreshToken');
+            return res.json({message: `Success!`});
+        } catch (e) {
+            next(e);
+        }
     }
 
 }

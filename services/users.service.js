@@ -1,58 +1,34 @@
 import DAL from '../db/dal.js';
 import {userDtoMaker} from "../utils/utils.js";
+import {ApiError} from '../exceptions/ApiError.js';
 
 class UsersService {
-    async getUserById(id) {
-        try {
-            const user = await DAL.getUserById(id);
-            if (!user) {
-                return {status: 400, message: `No users with this ID!`, data: null};
-            }
+    async getAllUsers() {
+        const users = await DAL.getAllUsers();
+        const usersToSend = users.map(userDtoMaker);
 
-            const userToSend = userDtoMaker(user);
-
-            return {
-                status: 200,
-                message: `Success!`,
-                data: userToSend
-            };
-
-        } catch (e) {
-            return {status: 500, message: `Some server error!`, data: null};
-        }
+        return {message: `Success. Found ${users.length} users!`, data: usersToSend};
     }
 
-    async getAllUsers() {
-        try {
-            const users = await DAL.getAllUsers();
-            const usersToSend = users.map(userDtoMaker);
-
-            return {
-                status: 200,
-                message: `Success. Found ${users.length} users!`,
-                data: usersToSend
-            };
-
-        } catch (e) {
-            return {status: 500, message: `Some server error!`, data: null};
+    async getUserById(id) {
+        const user = await DAL.getUserById(id);
+        if (!user) {
+            throw ApiError.BadRequestError(`No users with this ID!`);
         }
+
+        const userToSend = userDtoMaker(user);
+
+        return {message: `Success!`, data: userToSend};
     }
 
     async deleteUser(id) {
-        try {
-            const deletedUser = await DAL.deleteUserById(id);
-            if (!deletedUser) {
-                return {status: 400, message: `User whit id: ${id} not found!`}
-            }
-
-            return {
-                status: 200,
-                message: `User ${deletedUser.username} deleted!`
-            };
-
-        } catch (e) {
-            return {status: 500, message: `Some server error!`, data: null};
+        const deletedUser = await DAL.deleteUserById(id);
+        if (!deletedUser) {
+            throw ApiError.BadRequestError(`User whit id: ${id} not found!`);
         }
+
+        return {message: `User ${deletedUser.username} deleted!`};
+
     }
 }
 
