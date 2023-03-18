@@ -1,27 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Added mail.service">
-      <change afterPath="$PROJECT_DIR$/exceptions/ApiError.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/errors.middleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middlewares/validate.middleware.js" afterDir="false" />
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Added added refreshToken, logout and ErrorProcessing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/users.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/dal.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/auth.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/isAuth.middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/authValidate.middleware.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/isMyAccount.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/isMyAccount.middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/userIsActive.middleware.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/usersIdValidate.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/usersIdValidate.middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/auth.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/auth.router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/users.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/users.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/errors.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/errors.middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/isAuth.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/isAuth.middleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/auth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/mail.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/mail.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/token.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/token.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validators/auth.validator.js" beforeDir="false" afterPath="$PROJECT_DIR$/validators/auth.validator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +57,8 @@
       <workItem from="1678957228525" duration="15804000" />
       <workItem from="1678983401300" duration="6839000" />
       <workItem from="1678998309473" duration="319000" />
-      <workItem from="1679044021768" duration="18803000" />
+      <workItem from="1679044021768" duration="19445000" />
+      <workItem from="1679135389923" duration="4319000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -114,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678998552151</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added added refreshToken, logout and ErrorProcessing">
+      <created>1679069144198</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679069144198</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +134,7 @@
     <MESSAGE value="Added auth and users endpoints." />
     <MESSAGE value="Added token.service" />
     <MESSAGE value="Added mail.service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added mail.service" />
+    <MESSAGE value="Added added refreshToken, logout and ErrorProcessing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added added refreshToken, logout and ErrorProcessing" />
   </component>
 </project>

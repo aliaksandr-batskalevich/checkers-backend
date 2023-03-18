@@ -16,8 +16,7 @@ class TokenService {
         try {
             // if the token is not valid - the method VERIFY will generate an error
             // and the catch will work
-            const payload = jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET);
-            return payload;
+            return jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET);
         } catch (e) {
             return null;
         }
@@ -27,8 +26,7 @@ class TokenService {
         try {
             // if the token is not valid - the method VERIFY will generate an error
             // and the catch will work
-            const tokenPayload = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
-            return tokenPayload;
+            return  jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
         } catch (e) {
             return null;
         }
@@ -44,7 +42,18 @@ class TokenService {
     }
 
     async removeToken(refreshToken) {
-        await DAL.removeUsersToken(refreshToken);
+        const tokenPayload = this.verifyRefreshToken(refreshToken);
+        if (!tokenPayload) {
+            throw ApiError.UnauthorizedError();
+        }
+
+        const {id} = tokenPayload;
+        const userById = await DAL.getUserById(id);
+        if (!userById || userById.refresh_token !== refreshToken) {
+            throw ApiError.UnauthorizedError();
+        }
+
+        await DAL.removeUsersToken(id);
     }
 }
 

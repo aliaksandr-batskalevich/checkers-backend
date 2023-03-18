@@ -1,5 +1,6 @@
 import authService from '../services/auth.service.js';
 import dotenv from "dotenv";
+import {ApiError} from '../exceptions/ApiError.js';
 
 dotenv.config();
 
@@ -61,6 +62,9 @@ class AuthController {
     async logout(req, res, next) {
         try {
             const {refreshToken} = req.cookies;
+            if (!refreshToken) {
+                throw ApiError.UnauthorizedError();
+            }
             await authService.logout(refreshToken);
             res.clearCookie('refreshToken');
             return res.json({message: `Success!`});

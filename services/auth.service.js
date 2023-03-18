@@ -52,7 +52,7 @@ class AuthService {
         }
 
         const tokens = tokenService.generateTokens({id: userFromDb.id});
-        await tokenService.refreshToken(userFromDb.id);
+        await tokenService.refreshToken(userFromDb.id, tokens.refreshToken);
 
         return {message: `Success!`, data: {tokens}};
 
@@ -75,17 +75,19 @@ class AuthService {
 
         // if invalid token (expired or fake) or user not found - generate error!
         const tokenPayload = tokenService.verifyRefreshToken(refreshToken);
-        const userByRefreshToken = DAL.getUserByRefreshToken(refreshToken);
-        if (!tokenPayload || !userByRefreshToken) {
+        if (!tokenPayload) {
             throw ApiError.UnauthorizedError();
         }
-
         const {id} = tokenPayload;
+        const userById = DAL.getUserById(id);
+        if (!userById) {
+            throw ApiError.UnauthorizedError();
+        }
 
         // if tokenPayload includes more info - refresh it in new tokenPayload from DB.
 
         const tokens = tokenService.generateTokens({id});
-        await tokenService.refreshToken(id);
+        await tokenService.refreshToken(id, tokens.refreshToken);
 
         return {message: `Success!`, data: {tokens}};
     }

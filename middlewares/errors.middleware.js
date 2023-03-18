@@ -8,7 +8,7 @@ const errorsMiddleware = (error, req, res, next) => {
         return res.status(status).json({message, errors});
     }
 
-    res.status(500).json({message: 'Some server error. Try later.', errors: []})
+    res.status(500).json({message: 'Some server error. Try later.', errors: []});
 };
 
 export default errorsMiddleware;

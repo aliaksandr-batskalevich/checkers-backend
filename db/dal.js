@@ -29,18 +29,13 @@ class DAL {
         return result.rows[0];
     }
 
-    async getUserByRefreshToken(refreshToken) {
-        const result = await db.query(`SELECT * FROM users WHERE refresh_token = $1`, [refreshToken]);
-        return result.rows[0];
+    async getAllUsers() {
+        const result = await db.query(`SELECT * FROM users`);
+        return result.rows;
     }
 
     async activateAccount(activationLink) {
        await db.query(`UPDATE users SET is_activated = true WHERE activation_link = $1`, [activationLink]);
-    }
-
-    async getAllUsers() {
-        const result = await db.query(`SELECT * FROM users`);
-        return result.rows;
     }
 
     async deleteUserById(id) {
@@ -52,8 +47,8 @@ class DAL {
         await db.query(`UPDATE users SET refresh_token = $2 WHERE id = $1`, [userId, refreshToken]);
     }
 
-    async removeUsersToken(refreshToken) {
-        await db.query(`UPDATE users SET refresh_token = null WHERE refresh_token = $1`, [refreshToken]);
+    async removeUsersToken(id) {
+        await db.query(`UPDATE users SET refresh_token = null WHERE id = $1`, [id]);
     }
 
 }
