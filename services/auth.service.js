@@ -4,6 +4,7 @@ import tokenService from './token.service.js';
 import {v4} from 'uuid';
 import mailService from './mail.service.js';
 import {ApiError} from '../exceptions/ApiError.js';
+import {userDtoMaker} from "../utils/utils.js";
 
 
 class AuthService {
@@ -24,6 +25,7 @@ class AuthService {
         const activationLink = v4();
 
         const createdUser = await DAL.registrationUser(username, hashPassword, email, activationLink);
+        const userDto = userDtoMaker(createdUser);
 
         const resActivationLink = `${process.env.API_URL}/api/auth/activate/${activationLink}`;
         await mailService.sendActivationMail(email, resActivationLink);
@@ -33,7 +35,7 @@ class AuthService {
 
         return {
             message: `User ${createdUser.username} registered! Confirm registration via email: ${createdUser.email}.`,
-            data: {tokens}
+            data: {tokens, user: userDto}
         };
 
     }
@@ -46,6 +48,8 @@ class AuthService {
             throw ApiError.BadRequestError(`User '${username}' not registered!`);
         }
 
+        const userDto = userDtoMaker(userFromDb);
+
         const isValidPassword = bcrypt.compareSync(password, userFromDb.password);
         if (!isValidPassword) {
             throw ApiError.BadRequestError(`Invalid password!`);
@@ -54,7 +58,7 @@ class AuthService {
         const tokens = tokenService.generateTokens({id: userFromDb.id});
         await tokenService.refreshToken(userFromDb.id, tokens.refreshToken);
 
-        return {message: `Success!`, data: {tokens}};
+        return {message: `Success!`, data: {tokens, user: userDto}};
 
     }
 
@@ -78,18 +82,21 @@ class AuthService {
         if (!tokenPayload) {
             throw ApiError.UnauthorizedError();
         }
+
         const {id} = tokenPayload;
         const userById = DAL.getUserById(id);
         if (!userById) {
             throw ApiError.UnauthorizedError();
         }
 
+        const userDto = userDtoMaker(userById);
+
         // if tokenPayload includes more info - refresh it in new tokenPayload from DB.
 
         const tokens = tokenService.generateTokens({id});
         await tokenService.refreshToken(id, tokens.refreshToken);
 
-        return {message: `Success!`, data: {tokens}};
+        return {message: `Success!`, data: {tokens, user: userDto}};
     }
 
     async logout(refreshToken) {

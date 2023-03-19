@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import authRouter from './routers/auth.router.js';
 import usersRouter from './routers/users.router.js';
 import errorsMiddleware from "./middlewares/errors.middleware.js";
+import cors from 'cors';
 
 dotenv.config();
 
