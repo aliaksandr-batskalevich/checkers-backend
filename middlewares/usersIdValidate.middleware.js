@@ -1,4 +1,4 @@
-import {ApiError} from '../exceptions/ApiError.js';
+const {ApiError} = require('../exceptions/ApiError.js');
 
 const usersIdValidateMiddleware = (req, res, next) => {
     try {
@@ -12,4 +12,4 @@ const usersIdValidateMiddleware = (req, res, next) => {
     }
 };
 
-export default usersIdValidateMiddleware;
+module.exports =  usersIdValidateMiddleware;

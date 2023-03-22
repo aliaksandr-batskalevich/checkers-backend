@@ -1,8 +1,7 @@
 
-
 const snakeToCamelCase = s => s.split('_').map((w, i) => i ? w.replace(/^[a-z]/, l => l.toUpperCase()) : w).join('');
 
-export const userDtoMaker = (user) => {
+exports.userDtoMaker = userDtoMaker = (user) => {
     // filter privat properties
     const {password, email, refresh_token, activation_link, ...userDto} = user;
 

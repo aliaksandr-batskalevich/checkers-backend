@@ -1,18 +1,21 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser';
-import authRouter from './routers/auth.router.js';
-import usersRouter from './routers/users.router.js';
-import errorsMiddleware from "./middlewares/errors.middleware.js";
-import cors from 'cors';
+const express = require('express');
+const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
+const authRouter = require('./routers/auth.router.js');
+const usersRouter = require('./routers/users.router.js');
+const errorsMiddleware = require("./middlewares/errors.middleware.js");
+const cors = require('cors');
 
 dotenv.config();
 
 const PORT = process.env.PORT || 8080;
 
 const app = express();
-
 app.use(express.json());
+app.use(cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL
+}));
 app.use(cookieParser());
 
 // endpoints

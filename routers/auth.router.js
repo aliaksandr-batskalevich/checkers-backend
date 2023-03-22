@@ -1,10 +1,10 @@
-import {Router} from "express";
-import authController from '../controllers/auth.controller.js';
-import authValidator from '../validators/auth.validator.js';
-import validateMiddleware from "../middlewares/validate.middleware.js";
-import isAuthMiddleware from "../middlewares/isAuth.middleware.js";
+const Router = require("express").Router;
+const authController = require('../controllers/auth.controller.js');
+const authValidator = require('../validators/auth.validator.js');
+const validateMiddleware = require("../middlewares/validate.middleware.js");
+const isAuthMiddleware = require("../middlewares/isAuth.middleware.js");
 
-const router = new Router();
+const router = Router();
 
 router.post('/registration',
     authValidator.getUsernameRegistrationValidator(),
@@ -29,4 +29,4 @@ router.delete('/logout',
     isAuthMiddleware,
     authController.logout)
 
-export default router;
+module.exports = router;

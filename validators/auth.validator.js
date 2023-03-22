@@ -1,4 +1,4 @@
-import {check} from "express-validator";
+const {check} = require("express-validator");
 
 class AuthValidator {
     getUsernameRegistrationValidator() {
@@ -25,4 +25,4 @@ class AuthValidator {
 
 
 
-export default new AuthValidator();
+module.exports = new AuthValidator();

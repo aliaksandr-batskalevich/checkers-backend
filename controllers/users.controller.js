@@ -1,9 +1,11 @@
-import usersService from '../services/users.service.js';
+const usersService = require('../services/users.service.js');
 
 class UsersController {
     async getAllUsers(req, res, next) {
         try {
-            const {message, data} = await usersService.getAllUsers();
+            const {count, page} = req.query;
+            console.log(count, page);
+            const {message, data} = await usersService.getAllUsers(count, page);
 
             res.json({message, data});
 
@@ -35,4 +37,4 @@ class UsersController {
     }
 }
 
-export default new UsersController();
+module.exports = new UsersController();

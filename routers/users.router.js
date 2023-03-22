@@ -1,10 +1,10 @@
-import {Router} from "express";
-import userController from '../controllers/users.controller.js';
-import isAuthMiddleware from "../middlewares/isAuth.middleware.js";
-import usersIdValidateMiddleware from "../middlewares/usersIdValidate.middleware.js";
-import isMyAccountMiddleware from "../middlewares/isMyAccount.middleware.js";
+const Router = require("express").Router;
+const userController = require('../controllers/users.controller.js');
+const isAuthMiddleware = require("../middlewares/isAuth.middleware.js");
+const usersIdValidateMiddleware = require("../middlewares/usersIdValidate.middleware.js");
+const isMyAccountMiddleware = require("../middlewares/isMyAccount.middleware.js");
 
-const router = new Router();
+const router = Router();
 
 router.get('/',
     isAuthMiddleware,
@@ -22,4 +22,4 @@ router.delete('/:id',
     userController.deleteUser);
 
 
-export default router;
+module.exports = router;

@@ -1,13 +1,18 @@
-import DAL from '../db/dal.js';
-import {userDtoMaker} from "../utils/utils.js";
-import {ApiError} from '../exceptions/ApiError.js';
+const DAL = require('../db/dal.js');
+const {userDtoMaker} = require("../utils/utils.js");
+const {ApiError} = require('../exceptions/ApiError.js');
 
 class UsersService {
-    async getAllUsers() {
-        const users = await DAL.getAllUsers();
+    async getAllUsers(count = 5, page = 1) {
+
+        const {users, totalCount} = await DAL.getAllUsers(count, page);
+        if (page !== 1 && !users.length) {
+            throw ApiError.BadRequestError(`No users in this page!`);
+        }
+
         const usersToSend = users.map(userDtoMaker);
 
-        return {message: `Success. Found ${users.length} users!`, data: usersToSend};
+        return {message: `Success`, data: {totalCount, users: usersToSend}};
     }
 
     async getUserById(id) {
@@ -32,4 +37,4 @@ class UsersService {
     }
 }
 
-export default new UsersService();
+module.exports = new UsersService();

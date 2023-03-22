@@ -1,6 +1,6 @@
-import {ApiError} from '../exceptions/ApiError.js';
-import tokenService from '../services/token.service.js';
-import DAL from '../db/dal.js';
+const {ApiError} = require('../exceptions/ApiError.js');
+const tokenService = require('../services/token.service.js');
+const DAL = require('../db/dal.js');
 
 
 const isAuthMiddleware = async (req, res, next) => {
@@ -32,4 +32,4 @@ const isAuthMiddleware = async (req, res, next) => {
     }
 };
 
-export default isAuthMiddleware;
+module.exports = isAuthMiddleware;

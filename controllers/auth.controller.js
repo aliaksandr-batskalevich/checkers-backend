@@ -1,6 +1,6 @@
-import authService from '../services/auth.service.js';
-import dotenv from "dotenv";
-import {ApiError} from '../exceptions/ApiError.js';
+const authService = require('../services/auth.service.js');
+const dotenv = require("dotenv");
+const {ApiError} = require('../exceptions/ApiError.js');
 
 dotenv.config();
 
@@ -75,4 +75,4 @@ class AuthController {
 
 }
 
-export default new AuthController();
+module.exports =  new AuthController();

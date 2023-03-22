@@ -1,4 +1,4 @@
-import db from './db.js';
+const db = require('./db.js');
 
 class DAL {
 
@@ -29,9 +29,14 @@ class DAL {
         return result.rows[0];
     }
 
-    async getAllUsers() {
-        const result = await db.query(`SELECT * FROM users`);
-        return result.rows;
+    async getAllUsers(count, page) {
+        const totalCountResult = await db.query(`SELECT count(*) FROM users`);
+        const totalCount = totalCountResult.rows[0].count;
+
+        const offset = count * (page - 1);
+        const result = await db.query(`SELECT * FROM users ORDER BY id DESC OFFSET $1 LIMIT $2`, [offset, count]);
+
+        return {totalCount, users: result.rows};
     }
 
     async activateAccount(activationLink) {
@@ -53,4 +58,4 @@ class DAL {
 
 }
 
-export default new DAL();
+module.exports = new DAL();

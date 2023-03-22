@@ -1,6 +1,6 @@
-import jwt from "jsonwebtoken";
-import DAL from '../db/dal.js';
-import {ApiError} from '../exceptions/ApiError.js';
+const jwt = require("jsonwebtoken");
+const DAL = require('../db/dal.js');
+const {ApiError} = require('../exceptions/ApiError.js');
 
 class TokenService {
     generateTokens(payload) {
@@ -57,4 +57,4 @@ class TokenService {
     }
 }
 
-export default new TokenService();
+module.exports = new TokenService();

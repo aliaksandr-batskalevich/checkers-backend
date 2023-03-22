@@ -1,10 +1,10 @@
-import bcrypt from 'bcryptjs';
-import DAL from '../db/dal.js';
-import tokenService from './token.service.js';
-import {v4} from 'uuid';
-import mailService from './mail.service.js';
-import {ApiError} from '../exceptions/ApiError.js';
-import {userDtoMaker} from "../utils/utils.js";
+const bcrypt = require('bcryptjs');
+const DAL = require('../db/dal.js');
+const tokenService = require('./token.service.js');
+const {v4} = require('uuid');
+const mailService = require('./mail.service.js');
+const {ApiError} = require('../exceptions/ApiError.js');
+const {userDtoMaker} = require("../utils/utils.js");
 
 
 class AuthService {
@@ -84,7 +84,7 @@ class AuthService {
         }
 
         const {id} = tokenPayload;
-        const userById = DAL.getUserById(id);
+        const userById = await DAL.getUserById(id);
         if (!userById) {
             throw ApiError.UnauthorizedError();
         }
@@ -105,4 +105,4 @@ class AuthService {
 }
 
 
-export default new AuthService();
+module.exports = new AuthService();

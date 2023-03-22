@@ -1,4 +1,4 @@
-import {ApiError} from '../exceptions/ApiError.js';
+const {ApiError} = require('../exceptions/ApiError.js');
 
 const errorsMiddleware = (error, req, res, next) => {
     console.log(error);
@@ -11,4 +11,4 @@ const errorsMiddleware = (error, req, res, next) => {
     res.status(500).json({message: 'Some server error. Try later.', errors: []});
 };
 
-export default errorsMiddleware;
+module.exports = errorsMiddleware;

@@ -1,5 +1,5 @@
-import {validationResult} from "express-validator";
-import {ApiError} from '../exceptions/ApiError.js';
+const {validationResult} = require("express-validator");
+const {ApiError} = require('../exceptions/ApiError.js');
 
 const validateMiddleware = (req, res, next) => {
     try {
@@ -14,4 +14,4 @@ const validateMiddleware = (req, res, next) => {
     }
 };
 
-export default validateMiddleware;
+module.exports = validateMiddleware;

@@ -1,4 +1,4 @@
-import {ApiError} from '../exceptions/ApiError.js';
+const {ApiError} = require('../exceptions/ApiError.js');
 
 const isMyAccountMiddleware = (req, res, next) => {
     try {
@@ -12,4 +12,4 @@ const isMyAccountMiddleware = (req, res, next) => {
     }
 };
 
-export default isMyAccountMiddleware;
+module.exports = isMyAccountMiddleware;
