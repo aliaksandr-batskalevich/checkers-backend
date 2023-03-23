@@ -8,14 +8,30 @@ const cors = require('cors');
 
 dotenv.config();
 
+
 const PORT = process.env.PORT || 8080;
 
 const app = express();
 app.use(express.json());
+
 app.use(cors({
     credentials: true,
-    origin: process.env.CLIENT_URL
+    origin: [
+        'https://aliaksandr-batskalevich.github.io',
+        process.env.CLIENT_URL // localhost:3000
+    ],
+
 }));
+
+app.use(function (req, res, next) {
+    // req.header('Referer')
+    // res.header("Access-Control-Allow-Origin", 'https://aliaksandr-batskalevich.github.io');
+    // res.header("Access-Control-Allow-Credentials", true);
+    // res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    // res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+    next();
+});
+
 app.use(cookieParser());
 
 // endpoints

@@ -4,13 +4,21 @@ const {ApiError} = require('../exceptions/ApiError.js');
 
 dotenv.config();
 
+const maxCookieAge = (process.env.JWT_REFRESH_TOKEN_EXPIRE_DAY || 30) * 24 * 60 * 60 * 1000;
+const cookieOptions = {
+    maxAge: maxCookieAge,
+    httpOnly: true,
+
+    secure: true,
+    sameSite: 'none'
+};
+
 class AuthController {
     async registration(req, res, next) {
         try {
             const {message, data} = await authService.registration(req.body);
 
-            const maxCookieAge = (process.env.JWT_REFRESH_TOKEN_EXPIRE_DAY || 30) * 24 * 60 * 60 * 1000;
-            res.cookie('refreshToken', data.tokens.refreshToken, {maxAge: maxCookieAge, httpOnly: true});
+            res.cookie('refreshToken', data.tokens.refreshToken, cookieOptions);
 
             res.json({message, data});
 
@@ -23,8 +31,7 @@ class AuthController {
         try {
             const {message, data} = await authService.login(req.body);
 
-            const maxCookieAge = (process.env.JWT_REFRESH_TOKEN_EXPIRE_DAY || 30) * 24 * 60 * 60 * 1000;
-            res.cookie('refreshToken', data.tokens.refreshToken, {maxAge: maxCookieAge, httpOnly: true});
+            res.cookie('refreshToken', data.tokens.refreshToken, cookieOptions);
 
             res.json({message, data});
 
@@ -49,8 +56,7 @@ class AuthController {
             const {refreshToken} = req.cookies;
             const {message, data} = await authService.refreshToken(refreshToken);
 
-            const maxCookieAge = (process.env.JWT_REFRESH_TOKEN_EXPIRE_DAY || 30) * 24 * 60 * 60 * 1000;
-            res.cookie('refreshToken', data.tokens.refreshToken, {maxAge: maxCookieAge, httpOnly: true});
+            res.cookie('refreshToken', data.tokens.refreshToken, cookieOptions);
 
             res.json({message, data})
 
@@ -75,4 +81,4 @@ class AuthController {
 
 }
 
-module.exports =  new AuthController();
+module.exports = new AuthController();

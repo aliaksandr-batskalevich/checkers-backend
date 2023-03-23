@@ -4,7 +4,6 @@ class UsersController {
     async getAllUsers(req, res, next) {
         try {
             const {count, page} = req.query;
-            console.log(count, page);
             const {message, data} = await usersService.getAllUsers(count, page);
 
             res.json({message, data});

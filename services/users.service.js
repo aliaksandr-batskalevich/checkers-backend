@@ -23,7 +23,7 @@ class UsersService {
 
         const userToSend = userDtoMaker(user);
 
-        return {message: `Success!`, data: userToSend};
+        return {message: `Success!`, data: {user: userToSend}};
     }
 
     async deleteUser(id) {
