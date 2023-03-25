@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="change cors">
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="change URL">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +61,7 @@
       <workItem from="1679475435197" duration="5342000" />
       <workItem from="1679567872863" duration="12314000" />
       <workItem from="1679666690023" duration="5064000" />
-      <workItem from="1679759864062" duration="8665000" />
+      <workItem from="1679759864062" duration="9213000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -217,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679775439678</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="change URL">
+      <created>1679775754458</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1679775754458</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +261,8 @@
     <MESSAGE value="added cors" />
     <MESSAGE value="switch off nodemailer" />
     <MESSAGE value="change cors" />
-    <option name="LAST_COMMIT_MESSAGE" value="change cors" />
+    <MESSAGE value="change URL" />
+    <option name="LAST_COMMIT_MESSAGE" value="change URL" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
