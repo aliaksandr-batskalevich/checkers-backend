@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="change options of cookies">
-      <change afterPath="$PROJECT_DIR$/controllers/test.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/test.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/test.service.js" afterDir="false" />
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added router for tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/dal.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/test.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/test.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +64,7 @@
       <workItem from="1679475435197" duration="5342000" />
       <workItem from="1679567872863" duration="12314000" />
       <workItem from="1679666690023" duration="5064000" />
-      <workItem from="1679759864062" duration="894000" />
+      <workItem from="1679759864062" duration="2731000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -144,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679606704911</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added router for tests">
+      <created>1679760826538</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679760826538</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +180,7 @@
     <MESSAGE value="server before CORS middleware" />
     <MESSAGE value="added functional for return users on pages" />
     <MESSAGE value="change options of cookies" />
-    <option name="LAST_COMMIT_MESSAGE" value="change options of cookies" />
+    <MESSAGE value="added router for tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added router for tests" />
   </component>
 </project>

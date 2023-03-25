@@ -3,7 +3,7 @@ const {userDtoMaker} = require("../utils/utils.js");
 const {ApiError} = require('../exceptions/ApiError.js');
 
 class UsersService {
-    async getAllUsers(count = 5, page = 1) {
+    async getAllUsers(count, page) {
 
         const {users, totalCount} = await DAL.getAllUsers(count, page);
         if (page !== 1 && !users.length) {

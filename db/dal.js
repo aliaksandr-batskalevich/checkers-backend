@@ -29,7 +29,7 @@ class DAL {
         return result.rows[0];
     }
 
-    async getAllUsers(count, page) {
+    async getAllUsers(count= 4, page = 1) {
         const totalCountResult = await db.query(`SELECT count(*) FROM users`);
         const totalCount = totalCountResult.rows[0].count;
 
