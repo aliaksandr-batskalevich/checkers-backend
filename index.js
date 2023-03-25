@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
+const logMiddleware = require('./middlewares/log.middleware.js');
 const testRouter = require('./routers/test.router.js');
 const authRouter = require('./routers/auth.router.js');
 const usersRouter = require('./routers/users.router.js');
@@ -23,6 +24,8 @@ app.use(cors({
     // ],
 }));
 app.use(cookieParser());
+
+app.use(logMiddleware);
 
 // endpoints
 app.use('/api/test', testRouter);
