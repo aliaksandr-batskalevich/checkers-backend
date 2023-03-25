@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added router for tests">
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added postgres password">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dal.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/test.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/test.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/db.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +63,7 @@
       <workItem from="1679475435197" duration="5342000" />
       <workItem from="1679567872863" duration="12314000" />
       <workItem from="1679666690023" duration="5064000" />
-      <workItem from="1679759864062" duration="2731000" />
+      <workItem from="1679759864062" duration="3983000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -150,7 +149,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679760826538</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added test for db">
+      <created>1679763646898</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679763646898</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added postgres password">
+      <created>1679764013421</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1679764013421</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +194,8 @@
     <MESSAGE value="added functional for return users on pages" />
     <MESSAGE value="change options of cookies" />
     <MESSAGE value="added router for tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="added router for tests" />
+    <MESSAGE value="added test for db" />
+    <MESSAGE value="added postgres password" />
+    <option name="LAST_COMMIT_MESSAGE" value="added postgres password" />
   </component>
 </project>
