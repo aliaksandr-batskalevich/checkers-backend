@@ -59,7 +59,7 @@
       <workItem from="1679475435197" duration="5342000" />
       <workItem from="1679567872863" duration="12314000" />
       <workItem from="1679666690023" duration="5064000" />
-      <workItem from="1679759864062" duration="7452000" />
+      <workItem from="1679759864062" duration="7922000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -194,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679774435161</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added cors">
+      <created>1679774908712</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1679774908712</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
