@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added cors">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added cors" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +59,7 @@
       <workItem from="1679475435197" duration="5342000" />
       <workItem from="1679567872863" duration="12314000" />
       <workItem from="1679666690023" duration="5064000" />
-      <workItem from="1679759864062" duration="7399000" />
+      <workItem from="1679759864062" duration="7452000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -189,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679773485252</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added cors">
+      <created>1679774435161</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1679774435161</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
