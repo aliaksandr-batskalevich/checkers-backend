@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added functional for return users on pages">
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="change options of cookies">
+      <change afterPath="$PROJECT_DIR$/controllers/test.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routers/test.router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/test.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/users.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../checkers-frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -63,7 +63,9 @@
       <workItem from="1679331058239" duration="610000" />
       <workItem from="1679392214749" duration="4924000" />
       <workItem from="1679475435197" duration="5342000" />
-      <workItem from="1679567872863" duration="11886000" />
+      <workItem from="1679567872863" duration="12314000" />
+      <workItem from="1679666690023" duration="5064000" />
+      <workItem from="1679759864062" duration="894000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -135,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679503480512</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="change options of cookies">
+      <created>1679606704911</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679606704911</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +173,7 @@
     <MESSAGE value="bugFixing" />
     <MESSAGE value="server before CORS middleware" />
     <MESSAGE value="added functional for return users on pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="added functional for return users on pages" />
+    <MESSAGE value="change options of cookies" />
+    <option name="LAST_COMMIT_MESSAGE" value="change options of cookies" />
   </component>
 </project>
