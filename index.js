@@ -18,11 +18,11 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: [
-        'http://34.69.32.158'
+    // origin: [
+    //     'http://34.69.32.158'
         // 'https://aliaksandr-batskalevich.github.io',
         // process.env.CLIENT_URL // localhost:3000
-    ],
+    // ],
 }));
 app.use(cookieParser());
 
