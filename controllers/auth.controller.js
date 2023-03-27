@@ -69,6 +69,7 @@ class AuthController {
         try {
             const {refreshToken} = req.cookies;
             if (!refreshToken) {
+                console.log('No Cookies!!!');
                 throw ApiError.UnauthorizedError();
             }
             await authService.logout(refreshToken);
