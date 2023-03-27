@@ -18,6 +18,7 @@ const isAuthMiddleware = async (req, res, next) => {
 
         const tokenPayload = tokenService.verifyAccessToken(accessToken);
         if (!tokenPayload) {
+            console.log(accessToken);
             console.log('Yo3');
             throw ApiError.UnauthorizedError();
         }

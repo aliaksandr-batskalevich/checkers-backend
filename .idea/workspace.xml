@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="change registrationPasswordValidator">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added errorLogger" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +61,7 @@
       <workItem from="1679666690023" duration="5064000" />
       <workItem from="1679759864062" duration="9213000" />
       <workItem from="1679920678936" duration="939000" />
-      <workItem from="1679923920489" duration="4801000" />
+      <workItem from="1679923920489" duration="5139000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -240,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679930935923</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="added errorLogger">
+      <created>1679950573488</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1679950573488</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +284,8 @@
     <MESSAGE value="change cors" />
     <MESSAGE value="change URL" />
     <MESSAGE value="change registrationPasswordValidator" />
-    <option name="LAST_COMMIT_MESSAGE" value="change registrationPasswordValidator" />
+    <MESSAGE value="added errorLogger" />
+    <option name="LAST_COMMIT_MESSAGE" value="added errorLogger" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -288,6 +294,12 @@
           <url>file://$PROJECT_DIR$/services/auth.service.js</url>
           <line>30</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/middlewares/isAuth.middleware.js</url>
+          <line>20</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
