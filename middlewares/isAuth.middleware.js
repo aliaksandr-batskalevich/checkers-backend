@@ -18,7 +18,6 @@ const isAuthMiddleware = async (req, res, next) => {
 
         const tokenPayload = tokenService.verifyAccessToken(accessToken);
         if (!tokenPayload) {
-            console.log(accessToken);
             console.log('Yo3');
             throw ApiError.UnauthorizedError();
         }
@@ -29,6 +28,7 @@ const isAuthMiddleware = async (req, res, next) => {
             throw ApiError.UnauthorizedError();
         }
 
+        console.log('Yo5 - Auth middleware - ok)');
         req.userData = tokenPayload;
         next();
 
