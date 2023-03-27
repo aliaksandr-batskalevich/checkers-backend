@@ -9,6 +9,7 @@ const cookieOptions = {
     maxAge: maxCookieAge,
     httpOnly: true,
 
+    // OPTIONS FOR HTTPS:
     // secure: true,
     // sameSite: 'none'
 };
@@ -69,7 +70,6 @@ class AuthController {
         try {
             const {refreshToken} = req.cookies;
             if (!refreshToken) {
-                console.log('No Cookies!!!');
                 throw ApiError.UnauthorizedError();
             }
             await authService.logout(refreshToken);

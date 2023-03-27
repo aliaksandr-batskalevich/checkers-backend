@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added errorLogger">
-      <change beforePath="$PROJECT_DIR$/middlewares/isAuth.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/isAuth.middleware.js" afterDir="false" />
-    </list>
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="changed cookies options" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +61,7 @@
       <workItem from="1679666690023" duration="5064000" />
       <workItem from="1679759864062" duration="9213000" />
       <workItem from="1679920678936" duration="939000" />
-      <workItem from="1679923920489" duration="5514000" />
+      <workItem from="1679923920489" duration="6460000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -261,7 +259,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679951105770</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="added errorLogger">
+      <created>1679951250961</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1679951250961</updated>
+    </task>
+    <task id="LOCAL-00030" summary="changed cookies options">
+      <created>1679952160549</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1679952160549</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +313,8 @@
     <MESSAGE value="change URL" />
     <MESSAGE value="change registrationPasswordValidator" />
     <MESSAGE value="added errorLogger" />
-    <option name="LAST_COMMIT_MESSAGE" value="added errorLogger" />
+    <MESSAGE value="changed cookies options" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed cookies options" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

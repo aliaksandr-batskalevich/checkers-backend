@@ -28,7 +28,7 @@ class AuthService {
         const userDto = userDtoMaker(createdUser);
 
         const resActivationLink = `${process.env.API_URL}/api/auth/activate/${activationLink}`;
-        // await mailService.sendActivationMail(email, resActivationLink);
+        await mailService.sendActivationMail(email, resActivationLink);
 
         const tokens = tokenService.generateTokens({id: createdUser.id});
         await tokenService.refreshToken(createdUser.id, tokens.refreshToken);
