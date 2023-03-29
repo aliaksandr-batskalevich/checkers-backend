@@ -3,9 +3,7 @@ const db = require('./db.js');
 class DAL {
 
     async registrationUser(username, hashPassword, email, activationLink) {
-
-        const result = await db.query(`INSERT INTO users (username, password, email, activation_link, is_activated, games_count, games_wins_count, sparring_count, sparring_wins_count) VALUES ($1, $2, $3, $4, false, 0, 0, 0, 0) RETURNING *`, [username, hashPassword, email, activationLink]);
-
+        const result = await db.query(`INSERT INTO users (username, password, email, activation_link) VALUES ($1, $2, $3, $4) RETURNING *`, [username, hashPassword, email, activationLink]);
         return result.rows[0];
     }
 
@@ -29,7 +27,7 @@ class DAL {
         return result.rows[0];
     }
 
-    async getAllUsers(count= 4, page = 1) {
+    async getAllUsers(count = 4, page = 1) {
         const totalCountResult = await db.query(`SELECT count(*) FROM users`);
         const totalCount = totalCountResult.rows[0].count;
 
@@ -39,8 +37,13 @@ class DAL {
         return {totalCount, users: result.rows};
     }
 
+    async getTopUsers(count = 10) {
+        const result = await db.query(`SELECT * FROM users ORDER BY rating DESC LIMIT $1`, [count]);
+        return result.rows;
+    }
+
     async activateAccount(activationLink) {
-       await db.query(`UPDATE users SET is_activated = true WHERE activation_link = $1`, [activationLink]);
+        await db.query(`UPDATE users SET is_activated = true WHERE activation_link = $1`, [activationLink]);
     }
 
     async deleteUserById(id) {

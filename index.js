@@ -5,6 +5,7 @@ const logMiddleware = require('./middlewares/log.middleware.js');
 const testRouter = require('./routers/test.router.js');
 const authRouter = require('./routers/auth.router.js');
 const usersRouter = require('./routers/users.router.js');
+const topRouter = require('./routers/top.router.js');
 const errorsMiddleware = require("./middlewares/errors.middleware.js");
 const cors = require('cors');
 
@@ -19,10 +20,8 @@ app.use(express.json());
 app.use(cors({
     credentials: true,
     // origin: [
-    //     'http://34.69.32.158',
-    //     'https://aliaksandr-batskalevich.github.io',
-    //     process.env.CLIENT_URL // localhost:3000
-    // ],
+        // 'http://localhost:3000'
+    // ]
 }));
 app.use(cookieParser());
 
@@ -32,6 +31,7 @@ app.use(logMiddleware);
 app.use('/api/test', testRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/top', topRouter);
 
 // errorsMiddleware
 app.use(errorsMiddleware);
