@@ -12,62 +12,63 @@ class ChatController {
     }
 
     connection = async (ws, req) => {
+        console.log('WS-connecting!');
         try {
             let newMessage;
 
             ws.on('message', async (message) => {
-                const {type, data} = JSON.parse(message);
-                switch (type) {
-                    case 'auth': {
-                        const tokenPayload = tokenService.verifyAccessToken(data.accessToken);
-                        if (!tokenPayload) {
-                            // throw ApiError.UnauthorizedError();
-                        }
-                        const userFromDB = await DAL.getUserById(tokenPayload.id);
-                        if (!userFromDB) {
-                            // throw ApiError.UnauthorizedError();
-                        }
-
-                        const {id, username} = userFromDB;
-                        ws.id = id;
-                        ws.username = username;
-                        this.sockets.push(ws);
-
-                        // create admin message JOINED
-                        const createdMessage = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
-
-                        // send last 30 messages from DB
-                        const lastMessages = await DAL.getLastMessages(30);
-
-                        newMessage = dtoMessageMaker(lastMessages);
-                        break;
-                    }
-                    case 'chat': {
-                        if (!ws.id) {
-                            // throw ApiError.UnauthorizedError();
-                        }
-
-                        const createdMessageArr = await DAL.addChatMessage(ws.username, ws.id, data.message, new Date().toUTCString());
-
-                        newMessage = dtoMessageMaker(createdMessageArr);
-                        break;
-                    }
-                }
-
-                this.sockets.forEach(ws => {
-                    ws.send(newMessage);
-                });
+            //     const {type, data} = JSON.parse(message);
+            //     switch (type) {
+            //         case 'auth': {
+            //             const tokenPayload = tokenService.verifyAccessToken(data.accessToken);
+            //             if (!tokenPayload) {
+            //                 // throw ApiError.UnauthorizedError();
+            //             }
+            //             const userFromDB = await DAL.getUserById(tokenPayload.id);
+            //             if (!userFromDB) {
+            //                 // throw ApiError.UnauthorizedError();
+            //             }
+            //
+            //             const {id, username} = userFromDB;
+            //             ws.id = id;
+            //             ws.username = username;
+            //             this.sockets.push(ws);
+            //
+            //             // create admin message JOINED
+            //             const createdMessage = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
+            //
+            //             // send last 30 messages from DB
+            //             const lastMessages = await DAL.getLastMessages(30);
+            //
+            //             newMessage = dtoMessageMaker(lastMessages);
+            //             break;
+            //         }
+            //         case 'chat': {
+            //             if (!ws.id) {
+            //                 // throw ApiError.UnauthorizedError();
+            //             }
+            //
+            //             const createdMessageArr = await DAL.addChatMessage(ws.username, ws.id, data.message, new Date().toUTCString());
+            //
+            //             newMessage = dtoMessageMaker(createdMessageArr);
+            //             break;
+            //         }
+            //     }
+            //
+            //     this.sockets.forEach(ws => {
+            //         ws.send(newMessage);
+            //     });
             });
 
             ws.on('close', async () => {
-                const createdMessageArr = await DAL.addChatMessage('admin', 10, `${ws.username} left the chat!`, new Date().toUTCString());
-                newMessage = dtoMessageMaker(createdMessageArr);
-
-                this.sockets = this.sockets.filter(socket => socket.id !== ws.id);
-
-                this.sockets.forEach(ws => {
-                    ws.send(newMessage);
-                });
+                // const createdMessageArr = await DAL.addChatMessage('admin', 10, `${ws.username} left the chat!`, new Date().toUTCString());
+                // newMessage = dtoMessageMaker(createdMessageArr);
+                //
+                // this.sockets = this.sockets.filter(socket => socket.id !== ws.id);
+                //
+                // this.sockets.forEach(ws => {
+                //     ws.send(newMessage);
+                // });
             });
 
         } catch (e) {
