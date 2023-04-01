@@ -27,7 +27,7 @@ app.ws('/api/chat', (ws) => {
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: '*'
+    // origin: '*'
 }));
 app.use(cookieParser());
 
