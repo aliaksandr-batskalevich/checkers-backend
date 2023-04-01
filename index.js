@@ -24,9 +24,7 @@ app.ws('/api/chat', chatController.connection);
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: [
-        'http://localhost:3000'
-    ]
+    origin: '*'
 }));
 app.use(cookieParser());
 
