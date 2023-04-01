@@ -59,6 +59,26 @@ class DAL {
         await db.query(`UPDATE users SET refresh_token = null WHERE id = $1`, [id]);
     }
 
+
+    // chat
+
+    async addChatMessage(author, authorId, message, date) {
+        const result = await db.query(`INSERT INTO chat_messages (author, author_id, message, date) VALUES ($1, $2, $3, $4) RETURNING *`, [author, authorId, message, date]);
+        return [result.rows[0]];
+    }
+
+    async getLastMessages(count = 30) {
+        const totalCountResult = await db.query(`SELECT count(*) FROM chat_messages`);
+        const totalCount = totalCountResult.rows[0].count;
+
+        let offset = totalCount - count;
+        if (offset < 0) offset = 0;
+
+        const result = await db.query(`SELECT * FROM chat_messages OFFSET $1`, [offset]);
+
+        return result.rows;
+    }
+
 }
 
 module.exports = new DAL();

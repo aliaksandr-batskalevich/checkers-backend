@@ -13,18 +13,19 @@ CREATE TABLE users (
     rating INT DEFAULT 0
 );
 
-ALTER TABLE users ADD rating INT DEFAULT 0;
-ALTER TABLE users ALTER games_count SET DEFAULT 0;
-ALTER TABLE users ALTER games_wins_count SET DEFAULT 0;
-ALTER TABLE users ALTER sparring_count SET DEFAULT 0;
-ALTER TABLE users ALTER sparring_wins_count SET DEFAULT 0;
-ALTER TABLE users ALTER is_activated SET DEFAULT false;
+
+CREATE TABLE chat_messages (
+    id SERIAL PRIMARY KEY,
+    author_id INT NOT NULL,
+    FOREIGN KEY (author_id) REFERENCES users (id),
+    author VARCHAR(255) NOT NULL,
+    message VARCHAR(255) NOT NULL,
+    date TIMESTAMP NOT NULL
+);
 
 
 
-
-
-// NOT USED
+// STATISTICS NOT USED
 CREATE TABLE statistics (
     id SERIAL PRIMARY KEY,
     user_id INT,
@@ -35,3 +36,15 @@ CREATE TABLE statistics (
     sparring_wins_count INT DEFAULT 0,
     rating INT DEFAULT 0
 );
+
+
+
+
+
+
+ALTER TABLE users ADD rating INT DEFAULT 0;
+ALTER TABLE users ALTER games_count SET DEFAULT 0;
+ALTER TABLE users ALTER games_wins_count SET DEFAULT 0;
+ALTER TABLE users ALTER sparring_count SET DEFAULT 0;
+ALTER TABLE users ALTER sparring_wins_count SET DEFAULT 0;
+ALTER TABLE users ALTER is_activated SET DEFAULT false;

@@ -6,6 +6,7 @@ const testRouter = require('./routers/test.router.js');
 const authRouter = require('./routers/auth.router.js');
 const usersRouter = require('./routers/users.router.js');
 const topRouter = require('./routers/top.router.js');
+const chatController = require('./controllers/chat.controller');
 const errorsMiddleware = require("./middlewares/errors.middleware.js");
 const cors = require('cors');
 
@@ -16,12 +17,16 @@ const PORT = process.env.PORT || 8080;
 
 const app = express();
 
+const WSServer = require('express-ws')(app);
+
+app.ws('/api/chat', chatController.connection);
+
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    // origin: [
-        // 'http://localhost:3000'
-    // ]
+    origin: [
+        'http://localhost:3000'
+    ]
 }));
 app.use(cookieParser());
 
