@@ -57,6 +57,8 @@ class ChatController {
                         newMessage = dtoMessageMaker(createdMessageArr);
                         break;
                     }
+                    default:
+                        break;
                 }
 
                 this.sockets.forEach(ws => {
