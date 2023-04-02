@@ -4,6 +4,7 @@
     <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added functions for create any connected to chat from single account.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/chat.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/chat.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,21 +71,7 @@
       <workItem from="1680256826667" duration="6420000" />
       <workItem from="1680301057473" duration="3859000" />
       <workItem from="1680341438618" duration="24886000" />
-      <workItem from="1680427352115" duration="11241000" />
-    </task>
-    <task id="LOCAL-00003" summary="Added token.service">
-      <created>1678910853832</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1678910853832</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added mail.service">
-      <created>1678990241653</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1678990241653</updated>
+      <workItem from="1680427352115" duration="13393000" />
     </task>
     <task id="LOCAL-00005" summary="Added mail.service">
       <created>1678998373476</created>
@@ -415,7 +402,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680446596414</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="added functions for create any connected to chat from single account.">
+      <created>1680446785341</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1680446785342</updated>
+    </task>
+    <task id="LOCAL-00053" summary="added functions for create any connected to chat from single account.">
+      <created>1680446971703</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1680446971703</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -2,7 +2,7 @@ const chatService = require('../services/chat.service.js');
 const tokenService = require('../services/token.service.js');
 const DAL = require('../db/dal.js')
 const {ApiError} = require('../exceptions/ApiError.js');
-const {dtoMessageMaker} = require('../utils/utils.js');
+const {dtoMessageMaker, usersOnlineCreator} = require('../utils/utils.js');
 const {v4} = require('uuid');
 
 class ChatController {
@@ -35,17 +35,20 @@ class ChatController {
                         ws.userId = id;
                         ws.username = username;
 
-                        // send last 50 messages from DB
-                        const lastMessagesArr = await DAL.getLastMessages(50);
-                        const lastMessagesDto = dtoMessageMaker(lastMessagesArr);
-                        ws.send(lastMessagesDto);
-
                         if (!this.sockets.find(socket => socket.userId === ws.userId)) {
                             // create admin message JOINED
                             newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
                         }
 
                         this.sockets.push(ws);
+
+                        // send last 50 messages from DB
+                        const lastMessagesArr = await DAL.getLastMessages(50);
+                        const usersOnline = usersOnlineCreator(this.sockets);
+                        const lastMessagesDto = dtoMessageMaker(lastMessagesArr, usersOnline);
+
+                        ws.send(lastMessagesDto);
+
                         break;
                     }
                     case 'chat': {
@@ -63,7 +66,8 @@ class ChatController {
 
                 // SEND MESSAGE TO USERS
                 if (newMessageArr && this.sockets.length) {
-                    const dtoMessage = dtoMessageMaker(newMessageArr);
+                    const usersOnline = usersOnlineCreator(this.sockets);
+                    const dtoMessage = dtoMessageMaker(newMessageArr, usersOnline);
                     this.sockets.forEach(ws => {
                         ws.send(dtoMessage);
                     });
@@ -78,7 +82,8 @@ class ChatController {
 
                     // SEND MESSAGE TO USERS
                     if (this.sockets.length) {
-                        const newMessageArr = dtoMessageMaker(createdMessageArr);
+                        const usersOnline = usersOnlineCreator(this.sockets);
+                        const newMessageArr = dtoMessageMaker(createdMessageArr, usersOnline);
                         this.sockets.forEach(ws => {
                             ws.send(newMessageArr);
                         });

@@ -21,10 +21,20 @@ exports.userDtoMaker = userDtoMaker = (user) => {
     return camelCaseUserDto;
 };
 
-exports.dtoMessageMaker = (messageArr) => {
+exports.usersOnlineCreator = (sockets) => {
+    const users = sockets.map(socket => ({userId: socket.userId, username: socket.username}));
+    const uniqUsers = users.filter((user, index, array) => array.findIndex(u => u.userId === user.userId) === index);
+    return uniqUsers;
+};
+
+exports.dtoMessageMaker = (messageArr, usersOnlineArr) => {
 
 
     const camelCaseMessageArrDto = messageArr.map(objectKeysSnakeToCamelCaseMaker);
+    const objectToSend = {
+        messages: camelCaseMessageArrDto,
+        usersOnline: usersOnlineArr
+    };
 
-    return JSON.stringify(camelCaseMessageArrDto);
+    return JSON.stringify(objectToSend);
 };
