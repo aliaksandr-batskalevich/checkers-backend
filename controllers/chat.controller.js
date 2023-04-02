@@ -42,6 +42,9 @@ class ChatController {
                         const lastMessagesDto = dtoMessageMaker(lastMessagesArr);
                         ws.send(lastMessagesDto);
 
+                        console.log(!this.sockets.find(socket => socket.userId === ws.userId));
+                        console.log(this.sockets.map(socket => socket.username));
+
                         if (!this.sockets.find(socket => socket.userId === ws.userId)) {
                             // create admin message JOINED
                             newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
