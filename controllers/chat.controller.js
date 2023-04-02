@@ -57,11 +57,12 @@ class ChatController {
                         newMessage = dtoMessageMaker(createdMessageArr);
                         break;
                     }
-                    default:
+                    case 'ping':
+                        newMessage = undefined;
                         break;
                 }
 
-                this.sockets.forEach(ws => {
+                newMessage && this.sockets.forEach(ws => {
                     ws.send(newMessage);
                 });
             });

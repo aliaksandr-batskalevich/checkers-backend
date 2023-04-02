@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added tests for webSocket">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added tests for webSocket" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +67,7 @@
       <workItem from="1680256826667" duration="6420000" />
       <workItem from="1680301057473" duration="3859000" />
       <workItem from="1680341438618" duration="24886000" />
-      <workItem from="1680427352115" duration="5147000" />
+      <workItem from="1680427352115" duration="5501000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -365,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680431825360</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="added tests for webSocket">
+      <created>1680433966354</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1680433966354</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
