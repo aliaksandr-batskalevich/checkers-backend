@@ -47,8 +47,8 @@ class ChatController {
                         if (true) {
 
                             console.log(1, this.sockets.includes(ws));
-                            console.log(2, this.sockets.find(socket => socket.userId === ws.userId));
-                            console.log(2, this.sockets.findIndex(socket => socket.userId === ws.userId));
+                            console.log(2, !!this.sockets.find(socket => socket.userId === ws.userId));
+                            console.log(2, this.sockets.findIndex(socket => socket.userId === ws.id));
                             // create admin message JOINED
                             // newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
                         }
