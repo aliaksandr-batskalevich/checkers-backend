@@ -20,15 +20,14 @@ const app = express();
 const WSServer = require('express-ws')(app);
 
 app.ws('/api/chat', chatController.connection);
-// app.ws('/api/chat', (ws) => {
-//     console.log('Hi, I am WebSocket');
-// });
 
 app.use(express.json());
+
 app.use(cors({
     credentials: true,
     origin: '*'
 }));
+
 app.use(cookieParser());
 
 app.use(logMiddleware);

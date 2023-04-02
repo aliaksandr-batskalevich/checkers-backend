@@ -3,6 +3,7 @@ const tokenService = require('../services/token.service.js');
 const DAL = require('../db/dal.js')
 const {ApiError} = require('../exceptions/ApiError.js');
 const {dtoMessageMaker} = require('../utils/utils.js');
+const {v4} = require('uuid');
 
 class ChatController {
     sockets;
@@ -12,11 +13,11 @@ class ChatController {
     }
 
     connection = async (ws, req) => {
-        console.log('WS-connecting!');
         try {
-            let newMessage;
 
             ws.on('message', async (message) => {
+                let newMessageArr;
+
                 const {type, data} = JSON.parse(message);
                 switch (type) {
                     case 'auth': {
@@ -26,64 +27,64 @@ class ChatController {
                         }
                         const userFromDB = await DAL.getUserById(tokenPayload.id);
                         if (!userFromDB) {
-                            // throw ApiError.UnauthorizedError();
                             ws.close();
                         }
 
                         const {id, username} = userFromDB;
-                        ws.id = id;
+                        ws.id = v4();
+                        ws.userId = id;
                         ws.username = username;
+
                         this.sockets.push(ws);
 
-
-
-                        // send last 30 messages from DB
-                        const lastMessages = await DAL.getLastMessages(30);
-                        const lastMessagesDto = dtoMessageMaker(lastMessages);
+                        // send last 50 messages from DB
+                        const lastMessagesArr = await DAL.getLastMessages(50);
+                        const lastMessagesDto = dtoMessageMaker(lastMessagesArr);
                         ws.send(lastMessagesDto);
 
-                        // create admin message JOINED
-                        const createdMessage = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
-                        newMessage = dtoMessageMaker(createdMessage);
+                        if (!this.sockets.find(socket => socket.userId === id)) {
+                            // create admin message JOINED
+                            newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
+                        }
+
                         break;
                     }
                     case 'chat': {
                         if (!ws.id) {
-                            // throw ApiError.UnauthorizedError();
+                            ws.close();
                         }
 
-                        const createdMessageArr = await DAL.addChatMessage(ws.username, ws.id, data.message, new Date().toUTCString());
+                        newMessageArr = await DAL.addChatMessage(ws.username, ws.id, data.message, new Date().toUTCString());
 
-                        newMessage = dtoMessageMaker(createdMessageArr);
                         break;
                     }
                     case 'ping':
-                        newMessage = undefined;
                         break;
                 }
 
-                newMessage && this.sockets.forEach(ws => {
-                    ws.send(newMessage);
-                });
+                if (newMessageArr) {
+                    const dtoMessage = dtoMessageMaker(newMessageArr);
+                    this.sockets.forEach(ws => {
+                        ws.send(dtoMessage);
+                    });
+                }
             });
 
             ws.on('close', async () => {
-                const createdMessageArr = await DAL.addChatMessage('admin', 10, `${ws.username} left the chat!`, new Date().toUTCString());
-                newMessage = dtoMessageMaker(createdMessageArr);
-
                 this.sockets = this.sockets.filter(socket => socket.id !== ws.id);
 
-                this.sockets.forEach(ws => {
-                    ws.send(newMessage);
-                });
+                if (!this.sockets.find(socket => socket.userId === ws.userId)) {
+                    const createdMessageArr = await DAL.addChatMessage('admin', 10, `${ws.username} left the chat!`, new Date().toUTCString());
+                    const newMessageArr = dtoMessageMaker(createdMessageArr);
+
+                    this.sockets.forEach(ws => {
+                        ws.send(newMessageArr);
+                    });
+                }
             });
 
         } catch (e) {
             console.log(e.message);
-            // const message = e instanceof ApiError
-            //     ? dtoMessageMaker('admin', e.message, new Date().toLocaleTimeString())
-            //     : dtoMessageMaker('admin', 'Some server error. Try later!', new Date().toLocaleTimeString());
-            // ws.send(message);
             ws.close();
         }
     }
