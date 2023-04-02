@@ -44,7 +44,7 @@ class ChatController {
 
                         newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
 
-                        if (!this.sockets.find(socket => socket.userId === id)) {
+                        if (this.sockets.find(socket => socket === ws)) {
                             console.log('first connection!');
                             // create admin message JOINED
                             // newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
