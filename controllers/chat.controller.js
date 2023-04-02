@@ -1,6 +1,6 @@
 const DAL = require("../db/dal.js");
 const chatService = require('../services/chat.service.js');
-const tokenService = require("../token.service.js");
+const tokenService = require("../services/token.service.js");
 const {v4} = require("uuid");
 const {usersOnlineCreator, dtoMessageCreator} = require("../utils/utils.js");
 

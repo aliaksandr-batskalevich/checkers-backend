@@ -67,14 +67,7 @@
       <workItem from="1680256826667" duration="6420000" />
       <workItem from="1680301057473" duration="3859000" />
       <workItem from="1680341438618" duration="24886000" />
-      <workItem from="1680427352115" duration="19245000" />
-    </task>
-    <task id="LOCAL-00011" summary="change options of cookies">
-      <created>1679606704911</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1679606704911</updated>
+      <workItem from="1680427352115" duration="19548000" />
     </task>
     <task id="LOCAL-00012" summary="added router for tests">
       <created>1679760826538</created>
@@ -412,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680464518752</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="added functions for create any connected to chat from single account.">
+      <created>1680464824794</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1680464824794</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
