@@ -1,11 +1,11 @@
 const chatService = require('../services/chat.service.js');
 
 class ChatController {
-    sockets;
-
-    constructor() {
-        this.sockets = [];
-    }
+    // sockets;
+    //
+    // constructor() {
+    //     this.sockets = [];
+    // }
 
     connection = async (ws, req) => {
         try {

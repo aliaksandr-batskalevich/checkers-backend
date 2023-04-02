@@ -7,11 +7,13 @@ const {usersOnlineCreator, dtoMessageCreator} = require("../utils/utils.js");
 class ChatService {
     adminName;
     adminId;
+    sockets;
 
     constructor() {
         dotenv.config();
         this.adminName = process.env.ADMIN_NAME || 'admin';
         this.adminId = +process.env.ADMIN_ID || 10;
+        this.sockets = [];
     }
 
     async adminMessageCreator(message) {
