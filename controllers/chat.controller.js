@@ -1,8 +1,7 @@
 const chatService = require('../services/chat.service.js');
 const tokenService = require('../services/token.service.js');
 const DAL = require('../db/dal.js')
-const {ApiError} = require('../exceptions/ApiError.js');
-const {dtoMessageMaker, usersOnlineCreator} = require('../utils/utils.js');
+const {dtoMessageCreator, usersOnlineCreator} = require('../utils/utils.js');
 const {v4} = require('uuid');
 
 class ChatController {
@@ -17,8 +16,8 @@ class ChatController {
 
             ws.on('message', async (message) => {
                 let newMessageArr;
-
                 const {type, data} = JSON.parse(message);
+
                 switch (type) {
                     case 'auth': {
                         const tokenPayload = tokenService.verifyAccessToken(data.accessToken);
@@ -37,14 +36,13 @@ class ChatController {
 
                         // send last 50 messages from DB
                         const lastMessagesArr = await DAL.getLastMessages(50);
-                        const usersOnline = usersOnlineCreator(this.sockets);
-                        const lastMessagesDto = dtoMessageMaker(lastMessagesArr, usersOnline);
-
-                        ws.send(lastMessagesDto);
+                        const usersOnlineArr = usersOnlineCreator(this.sockets);
+                        const chatObject = dtoMessageCreator(lastMessagesArr, usersOnlineArr);
+                        ws.send(chatObject);
 
                         if (!this.sockets.find(socket => socket.userId === ws.userId)) {
                             // create admin message JOINED
-                            newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
+                            newMessageArr = await chatService.adminMessageCreator(`${username} joined!`)
                         }
 
                         this.sockets.push(ws);
@@ -56,18 +54,18 @@ class ChatController {
                             ws.close();
                         }
 
-                        newMessageArr = await DAL.addChatMessage(ws.username, ws.userId, data.message, new Date().toUTCString());
+                        newMessageArr = await chatService.userMessageCreator(ws.username, ws.userId, data.message);
                         break;
                     }
                     case 'ping':
                         break;
                 }
 
-
                 // SEND MESSAGE TO USERS
                 if (newMessageArr && this.sockets.length) {
                     const usersOnline = usersOnlineCreator(this.sockets);
-                    const dtoMessage = dtoMessageMaker(newMessageArr, usersOnline);
+                    const dtoMessage = dtoMessageCreator(newMessageArr, usersOnline);
+
                     this.sockets.forEach(ws => {
                         ws.send(dtoMessage);
                     });
@@ -75,17 +73,20 @@ class ChatController {
             });
 
             ws.on('close', async () => {
+                // REMOVE SOCKET
                 this.sockets = this.sockets.filter(socket => socket.id !== ws.id);
 
+                // CREATE MESSAGE IF NO USERS SOCKET IN SOCKETS ARRAY
                 if (!this.sockets.find(socket => socket.userId === ws.userId)) {
-                    const createdMessageArr = await DAL.addChatMessage('admin', 10, `${ws.username} left the chat!`, new Date().toUTCString());
+                    const adminMessageArr = await chatService.adminMessageCreator(`${ws.username} left the chat!`);
 
                     // SEND MESSAGE TO USERS
                     if (this.sockets.length) {
-                        const usersOnline = usersOnlineCreator(this.sockets);
-                        const newMessageArr = dtoMessageMaker(createdMessageArr, usersOnline);
+                        const usersOnlineArr = usersOnlineCreator(this.sockets);
+                        const chatObject = dtoMessageCreator(adminMessageArr, usersOnlineArr);
+
                         this.sockets.forEach(ws => {
-                            ws.send(newMessageArr);
+                            ws.send(chatObject);
                         });
                     }
                 }
