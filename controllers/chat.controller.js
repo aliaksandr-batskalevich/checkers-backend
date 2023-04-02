@@ -42,15 +42,9 @@ class ChatController {
                         const lastMessagesDto = dtoMessageMaker(lastMessagesArr);
                         ws.send(lastMessagesDto);
 
-                        newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
-
-                        if (true) {
-
-                            console.log(1, this.sockets.includes(ws));
-                            console.log(2, !!this.sockets.find(socket => socket.userId === ws.userId));
-                            console.log(2, this.sockets.findIndex(socket => socket.userId === ws.id));
+                        if (!this.sockets.find(socket => socket.userId === ws.userId)) {
                             // create admin message JOINED
-                            // newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
+                            newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
                         }
 
                         break;
@@ -61,19 +55,17 @@ class ChatController {
                         }
 
                         newMessageArr = await DAL.addChatMessage(ws.username, ws.userId, data.message, new Date().toUTCString());
-
                         break;
                     }
                     case 'ping':
                         break;
                 }
 
-                console.log(newMessageArr);
 
-                if (newMessageArr) {
+                // SEND MESSAGE TO USERS
+                if (newMessageArr && this.sockets.length) {
                     const dtoMessage = dtoMessageMaker(newMessageArr);
                     this.sockets.forEach(ws => {
-                        console.log(`sending ${ws.username}`);
                         ws.send(dtoMessage);
                     });
                 }
@@ -84,11 +76,14 @@ class ChatController {
 
                 if (!this.sockets.find(socket => socket.userId === ws.userId)) {
                     const createdMessageArr = await DAL.addChatMessage('admin', 10, `${ws.username} left the chat!`, new Date().toUTCString());
-                    const newMessageArr = dtoMessageMaker(createdMessageArr);
 
-                    this.sockets.forEach(ws => {
-                        ws.send(newMessageArr);
-                    });
+                    // SEND MESSAGE TO USERS
+                    if (this.sockets.length) {
+                        const newMessageArr = dtoMessageMaker(createdMessageArr);
+                        this.sockets.forEach(ws => {
+                            ws.send(newMessageArr);
+                        });
+                    }
                 }
             });
 
