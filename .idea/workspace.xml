@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added tests for webSocket">
-      <change afterPath="$PROJECT_DIR$/c-test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/s-test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/chat.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/chat.controller.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +70,7 @@
       <workItem from="1680256826667" duration="6420000" />
       <workItem from="1680301057473" duration="3859000" />
       <workItem from="1680341438618" duration="24886000" />
-      <workItem from="1680427352115" duration="2236000" />
+      <workItem from="1680427352115" duration="3893000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth and users endpoints.">
       <created>1678817883694</created>
@@ -350,7 +345,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680379272443</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="added tests for webSocket">
+      <created>1680429762656</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1680429762656</updated>
+    </task>
+    <task id="LOCAL-00041" summary="added tests for webSocket">
+      <created>1680431143351</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1680431143351</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +426,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/controllers/chat.controller.js</url>
-          <line>46</line>
+          <line>50</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

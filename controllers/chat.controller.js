@@ -40,7 +40,7 @@ class ChatController {
                         // send last 30 messages from DB
                         const lastMessages = await DAL.getLastMessages(30);
                         const lastMessagesDto = dtoMessageMaker(lastMessages);
-                        ws.send(lastMessages);
+                        ws.send(lastMessagesDto);
 
                         // create admin message JOINED
                         const createdMessage = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
