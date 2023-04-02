@@ -22,11 +22,12 @@ class ChatController {
                     case 'auth': {
                         const tokenPayload = tokenService.verifyAccessToken(data.accessToken);
                         if (!tokenPayload) {
-                            // throw ApiError.UnauthorizedError();
+                            ws.close();
                         }
                         const userFromDB = await DAL.getUserById(tokenPayload.id);
                         if (!userFromDB) {
                             // throw ApiError.UnauthorizedError();
+                            ws.close();
                         }
 
                         const {id, username} = userFromDB;
@@ -34,13 +35,16 @@ class ChatController {
                         ws.username = username;
                         this.sockets.push(ws);
 
-                        // create admin message JOINED
-                        const createdMessage = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
+
 
                         // send last 30 messages from DB
                         const lastMessages = await DAL.getLastMessages(30);
+                        const lastMessagesDto = dtoMessageMaker(lastMessages);
+                        ws.send(lastMessages);
 
-                        newMessage = dtoMessageMaker(lastMessages);
+                        // create admin message JOINED
+                        const createdMessage = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
+                        newMessage = dtoMessageMaker(createdMessage);
                         break;
                     }
                     case 'chat': {
@@ -77,7 +81,7 @@ class ChatController {
             //     ? dtoMessageMaker('admin', e.message, new Date().toLocaleTimeString())
             //     : dtoMessageMaker('admin', 'Some server error. Try later!', new Date().toLocaleTimeString());
             // ws.send(message);
-            // ws.close();
+            ws.close();
         }
     }
 }
