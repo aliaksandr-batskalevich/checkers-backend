@@ -35,19 +35,19 @@ class ChatController {
                         ws.userId = id;
                         ws.username = username;
 
-                        if (!this.sockets.find(socket => socket.userId === ws.userId)) {
-                            // create admin message JOINED
-                            newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
-                        }
-
-                        this.sockets.push(ws);
-
                         // send last 50 messages from DB
                         const lastMessagesArr = await DAL.getLastMessages(50);
                         const usersOnline = usersOnlineCreator(this.sockets);
                         const lastMessagesDto = dtoMessageMaker(lastMessagesArr, usersOnline);
 
                         ws.send(lastMessagesDto);
+
+                        if (!this.sockets.find(socket => socket.userId === ws.userId)) {
+                            // create admin message JOINED
+                            newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
+                        }
+
+                        this.sockets.push(ws);
 
                         break;
                     }
