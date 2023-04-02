@@ -25,7 +25,7 @@ class ChatService {
     }
 
     async onMessage(ws) {
-        return async function(message) {
+        return async (message) => {
             let newMessageArr;
             const {type, data} = JSON.parse(message);
 
@@ -85,7 +85,7 @@ class ChatService {
     }
 
     async onClose(ws) {
-        return async function() {
+        return async () => {
             // REMOVE SOCKET
             this.sockets = this.sockets.filter(socket => socket.id !== ws.id);
 
