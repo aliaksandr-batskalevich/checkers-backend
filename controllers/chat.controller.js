@@ -42,10 +42,12 @@ class ChatController {
                         const lastMessagesDto = dtoMessageMaker(lastMessagesArr);
                         ws.send(lastMessagesDto);
 
+                        newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
+
                         if (!this.sockets.find(socket => socket.userId === id)) {
                             console.log('first connection!');
                             // create admin message JOINED
-                            newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
+                            // newMessageArr = await DAL.addChatMessage('admin', 10, `${username} joined!`, new Date().toUTCString());
                         }
 
                         break;
@@ -55,7 +57,7 @@ class ChatController {
                             ws.close();
                         }
 
-                        newMessageArr = await DAL.addChatMessage(ws.username, ws.id, data.message, new Date().toUTCString());
+                        newMessageArr = await DAL.addChatMessage(ws.username, ws.userId, data.message, new Date().toUTCString());
 
                         break;
                     }
