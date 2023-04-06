@@ -25,7 +25,7 @@ app.use(express.json());
 
 const options = {
     credentials: true,
-    origin: '*',
+    origin: ['http://localhost:3000'],
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
 };
 
