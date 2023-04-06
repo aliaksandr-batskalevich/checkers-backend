@@ -27,7 +27,7 @@ const options = {
     credentials: true,
     origin: [/^(.*)/],
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
-    allowedHeaders: '*',
+    allowedHeaders: ['Authorization'],
     // headers: '*',
 };
 

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="changed cors">
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="changed cors" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,14 +69,7 @@
       <workItem from="1680341438618" duration="24886000" />
       <workItem from="1680427352115" duration="19759000" />
       <workItem from="1680709633323" duration="1178000" />
-      <workItem from="1680795790347" duration="3681000" />
-    </task>
-    <task id="LOCAL-00022" summary="change cors">
-      <created>1679775439678</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1679775439678</updated>
+      <workItem from="1680795790347" duration="4031000" />
     </task>
     <task id="LOCAL-00023" summary="change URL">
       <created>1679775754458</created>
@@ -416,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680800561933</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="changed cors">
+      <created>1680800841277</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1680800841277</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
