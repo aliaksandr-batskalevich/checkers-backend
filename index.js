@@ -29,7 +29,7 @@ const options = {
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
 };
 
-app.use(cors());
+app.use(cors(options));
 
 app.use(cookieParser());
 
