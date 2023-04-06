@@ -23,11 +23,13 @@ app.ws('/api/chat', chatController.connection);
 
 app.use(express.json());
 
-app.use(cors({
+const options = {
     credentials: true,
     origin: '*',
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
-}));
+};
+
+app.use(cors());
 
 app.use(cookieParser());
 

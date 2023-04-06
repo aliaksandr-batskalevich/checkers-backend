@@ -3,7 +3,6 @@ const authController = require('../controllers/auth.controller.js');
 const authValidator = require('../validators/auth.validator.js');
 const validateMiddleware = require("../middlewares/validate.middleware.js");
 const isAuthMiddleware = require("../middlewares/isAuth.middleware.js");
-const cors = require('cors');
 
 const router = Router();
 
@@ -15,7 +14,6 @@ router.post('/registration',
     authController.registration);
 
 router.post('/login',
-    cors(),
     authValidator.getUsernameLoginValidator(),
     authValidator.getPasswordLoginValidator(),
     validateMiddleware,
