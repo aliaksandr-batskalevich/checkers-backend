@@ -29,7 +29,6 @@ const options = {
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
     allowedHeaders: ['Authorization', 'content-type', 'Cookie'],
     exposedHeaders: ['Set-Cookie'],
-    // headers: '*',
 };
 
 app.use(cors(options));
