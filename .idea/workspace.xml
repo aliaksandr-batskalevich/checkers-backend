@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="changed cors">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="changed cors" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,14 +69,7 @@
       <workItem from="1680341438618" duration="24886000" />
       <workItem from="1680427352115" duration="19759000" />
       <workItem from="1680709633323" duration="1178000" />
-      <workItem from="1680795790347" duration="1195000" />
-    </task>
-    <task id="LOCAL-00014" summary="added postgres password">
-      <created>1679764013421</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1679764013421</updated>
+      <workItem from="1680795790347" duration="1545000" />
     </task>
     <task id="LOCAL-00015" summary="added postgres password">
       <created>1679765112749</created>
@@ -416,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680796261031</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="changed cors">
+      <created>1680798282235</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1680798282235</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
