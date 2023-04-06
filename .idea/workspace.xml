@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added functions for create any connected to chat from single account.">
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="changed cors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +32,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../checkers-frontend" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -71,13 +71,7 @@
       <workItem from="1680341438618" duration="24886000" />
       <workItem from="1680427352115" duration="19759000" />
       <workItem from="1680709633323" duration="1178000" />
-    </task>
-    <task id="LOCAL-00013" summary="added test for db">
-      <created>1679763646898</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1679763646898</updated>
+      <workItem from="1680795790347" duration="1195000" />
     </task>
     <task id="LOCAL-00014" summary="added postgres password">
       <created>1679764013421</created>
@@ -415,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680464933116</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="changed cors">
+      <created>1680796261031</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1680796261031</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +462,8 @@
     <MESSAGE value="added chatController" />
     <MESSAGE value="added tests for webSocket" />
     <MESSAGE value="added functions for create any connected to chat from single account." />
-    <option name="LAST_COMMIT_MESSAGE" value="added functions for create any connected to chat from single account." />
+    <MESSAGE value="changed cors" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed cors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
