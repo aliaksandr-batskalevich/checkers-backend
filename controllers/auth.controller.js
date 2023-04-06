@@ -9,7 +9,7 @@ const cookieOptions = {
     maxAge: maxCookieAge,
     httpOnly: true,
     secure: false,
-    sameSite: true,
+    sameSite: false,
     // path: '/',
 };
 
