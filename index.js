@@ -26,8 +26,8 @@ app.use(express.json());
 const options = {
     credentials: true,
     origin: [/^(.*)/],
-    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
-    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization',  'Cookie'],
+    // methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+    // allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization',  'Cookie'],
     // exposedHeaders: ['Set-Cookie'],
 };
 
