@@ -9,8 +9,8 @@ const cookieOptions = {
     maxAge: maxCookieAge,
     httpOnly: true,
     secure: false,
-    sameSite: undefined,
-    // path: '/',
+    sameSite: 'none',
+    path: '/',
 };
 
 class AuthController {
