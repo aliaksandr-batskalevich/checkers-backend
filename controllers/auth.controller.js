@@ -8,8 +8,8 @@ const maxCookieAge = (process.env.JWT_REFRESH_TOKEN_EXPIRE_DAY || 30) * 24 * 60 
 const cookieOptions = {
     maxAge: maxCookieAge,
     httpOnly: true,
-    secure: true,
-    sameSite: 'none',
+    secure: false,
+    sameSite: 'strict',
 };
 
 class AuthController {
