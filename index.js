@@ -27,7 +27,8 @@ const options = {
     credentials: true,
     origin: [/^(.*)/],
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
-    allowedHeaders: ['Authorization', 'content-type', 'Cookie', 'X-Requested-With,Content-Type,token'],
+    // allowedHeaders: ['Authorization', 'content-type', 'Cookie', 'X-Requested-With,Content-Type,token'],
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization',  'X-PINGOTHER'],
     exposedHeaders: ['Set-Cookie'],
 };
 
