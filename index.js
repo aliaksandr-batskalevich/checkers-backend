@@ -26,7 +26,8 @@ app.use(express.json());
 const options = {
     credentials: true,
     origin: [/^(.*)/],
-    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
+    headers: '*',
 };
 
 app.use(cors(options));

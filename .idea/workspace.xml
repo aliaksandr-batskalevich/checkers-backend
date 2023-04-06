@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="changed cors">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,28 +72,7 @@
       <workItem from="1680341438618" duration="24886000" />
       <workItem from="1680427352115" duration="19759000" />
       <workItem from="1680709633323" duration="1178000" />
-      <workItem from="1680795790347" duration="2351000" />
-    </task>
-    <task id="LOCAL-00017" summary="added cors">
-      <created>1679767117737</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1679767117737</updated>
-    </task>
-    <task id="LOCAL-00018" summary="added cors">
-      <created>1679773485252</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1679773485252</updated>
-    </task>
-    <task id="LOCAL-00019" summary="added cors">
-      <created>1679774435161</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1679774435161</updated>
+      <workItem from="1680795790347" duration="3334000" />
     </task>
     <task id="LOCAL-00020" summary="added cors">
       <created>1679774908712</created>
@@ -416,7 +396,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680799246777</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="changed cors">
+      <created>1680799420130</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1680799420130</updated>
+    </task>
+    <task id="LOCAL-00067" summary="changed cors">
+      <created>1680799500103</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1680799500103</updated>
+    </task>
+    <task id="LOCAL-00068" summary="changed cors">
+      <created>1680799900230</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1680799900230</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
