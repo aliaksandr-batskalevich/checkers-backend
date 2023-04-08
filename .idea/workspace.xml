@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added statistics table in dataBase">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/auth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,14 +73,7 @@
       <workItem from="1680427352115" duration="19759000" />
       <workItem from="1680709633323" duration="1178000" />
       <workItem from="1680795790347" duration="9633000" />
-      <workItem from="1680942436547" duration="17364000" />
-    </task>
-    <task id="LOCAL-00041" summary="added tests for webSocket">
-      <created>1680431143351</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1680431143351</updated>
+      <workItem from="1680942436547" duration="17703000" />
     </task>
     <task id="LOCAL-00042" summary="added tests for webSocket">
       <created>1680431825360</created>
@@ -417,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680961696131</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="added statistics table in dataBase">
+      <created>1680962536393</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1680962536393</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,6 +474,12 @@
           <url>file://$PROJECT_DIR$/services/auth.service.js</url>
           <line>33</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/services/auth.service.js</url>
+          <line>62</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

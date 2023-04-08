@@ -59,8 +59,7 @@ class AuthService {
         const tokens = tokenService.generateTokens({id: userFromDb.id});
         await tokenService.refreshToken(userFromDb.id, tokens.refreshToken);
 
-        const userWithStatistics = statisticsService.addStatisticsDataToUser(userFromDb);
-        console.log(userWithStatistics);
+        const userWithStatistics = await statisticsService.addStatisticsDataToUser(userFromDb);
 
         const userDto = userDtoMaker(userWithStatistics);
 
