@@ -2,6 +2,7 @@ const db = require('./db.js');
 
 class DAL {
 
+    // users
     async registrationUser(username, hashPassword, email, activationLink) {
         const result = await db.query(`INSERT INTO users (username, password, email, activation_link) VALUES ($1, $2, $3, $4) RETURNING *`, [username, hashPassword, email, activationLink]);
         return result.rows[0];
@@ -27,18 +28,21 @@ class DAL {
         return result.rows[0];
     }
 
-    async getAllUsers(count = 4, page = 1) {
+    async getAllUsersWithStatistics(count = 4, page = 1) {
         const totalCountResult = await db.query(`SELECT count(*) FROM users`);
         const totalCount = totalCountResult.rows[0].count;
 
         const offset = count * (page - 1);
-        const result = await db.query(`SELECT * FROM users ORDER BY id DESC OFFSET $1 LIMIT $2`, [offset, count]);
+
+        //INNER JOIN users & statistics tables by userId
+        const result = await db.query(`SELECT users.*, statistics.games_count, statistics.games_wins_count, statistics.sparring_count, statistics.sparring_wins_count, statistics.rating FROM users INNER JOIN statistics ON users.id = statistics.user_id ORDER BY id DESC OFFSET $1 LIMIT $2`, [offset, count]);
 
         return {totalCount, users: result.rows};
     }
 
-    async getTopUsers(count = 10) {
-        const result = await db.query(`SELECT * FROM users ORDER BY rating DESC LIMIT $1`, [count]);
+    async getTopUsersWithStatistics(count = 10) {
+        const result = await db.query(`SELECT users.*, statistics.games_count, statistics.games_wins_count, statistics.sparring_count, statistics.sparring_wins_count, statistics.rating FROM users INNER JOIN statistics ON users.id = statistics.user_id ORDER BY rating DESC LIMIT $1`, [count]);
+
         return result.rows;
     }
 
@@ -60,8 +64,25 @@ class DAL {
     }
 
 
-    // chat
+    // statistics
+    async createUserStatistics(userId) {
+        const result = await db.query(`INSERT INTO statistics (user_id) VALUES ($1) RETURNING *`, [userId]);
 
+        return result.rows[0];
+    }
+
+    async removeUserStatistics(userId) {
+        await db.query(`DELETE FROM statistics WHERE user_id = $1`, [userId]);
+    }
+
+    async getUserStatistics(userId) {
+        const result = await db.query(`SELECT * FROM statistics WHERE user_id = $1`, [userId]);
+
+        return result.rows[0];
+    }
+
+
+    // chat_messages
     async addChatMessage(author, authorId, message, date) {
         const result = await db.query(`INSERT INTO chat_messages (author, author_id, message, date) VALUES ($1, $2, $3, $4) RETURNING *`, [author, authorId, message, date]);
         return [result.rows[0]];

@@ -1,8 +1,9 @@
+const tokenService = require('./token.service.js');
+const mailService = require('./mail.service.js');
+const statisticsService = require('./statistics.service.js');
 const bcrypt = require('bcryptjs');
 const DAL = require('../db/dal.js');
-const tokenService = require('./token.service.js');
 const {v4} = require('uuid');
-const mailService = require('./mail.service.js');
 const {ApiError} = require('../exceptions/ApiError.js');
 const {userDtoMaker} = require("../utils/utils.js");
 
@@ -25,7 +26,9 @@ class AuthService {
         const activationLink = v4();
 
         const createdUser = await DAL.registrationUser(username, hashPassword, email, activationLink);
-        const userDto = userDtoMaker(createdUser);
+        const createdUserWithStatistics = await statisticsService.createUserStatistics(createdUser);
+
+        const userDto = userDtoMaker(createdUserWithStatistics);
 
         const resActivationLink = `${process.env.API_URL}/api/auth/activate/${activationLink}`;
         await mailService.sendActivationMail(email, resActivationLink);
@@ -48,8 +51,6 @@ class AuthService {
             throw ApiError.BadRequestError(`User '${username}' not registered!`);
         }
 
-        const userDto = userDtoMaker(userFromDb);
-
         const isValidPassword = bcrypt.compareSync(password, userFromDb.password);
         if (!isValidPassword) {
             throw ApiError.BadRequestError(`Invalid password!`);
@@ -57,6 +58,9 @@ class AuthService {
 
         const tokens = tokenService.generateTokens({id: userFromDb.id});
         await tokenService.refreshToken(userFromDb.id, tokens.refreshToken);
+
+        const userWithStatistics = statisticsService.addStatisticsDataToUser(userFromDb);
+        const userDto = userDtoMaker(userWithStatistics);
 
         return {message: `Success!`, data: {tokens, user: userDto}};
 
@@ -84,12 +88,14 @@ class AuthService {
         }
 
         const {id} = tokenPayload;
-        const userById = await DAL.getUserById(id);
-        if (!userById) {
+        const userFromDb = await DAL.getUserById(id);
+        if (!userFromDb) {
             throw ApiError.UnauthorizedError();
         }
 
-        const userDto = userDtoMaker(userById);
+        const userWithStatistics = await statisticsService.addStatisticsDataToUser(userFromDb);
+
+        const userDto = userDtoMaker(userWithStatistics);
 
         // if tokenPayload includes more info - refresh it in new tokenPayload from DB.
 

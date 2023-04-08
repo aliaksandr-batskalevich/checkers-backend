@@ -13,6 +13,9 @@ CREATE TABLE users (
     rating INT DEFAULT 0
 );
 
+INSERT INTO statistics (user_id, games_count, games_wins_count, sparring_count, sparring_wins_count, rating) SELECT id, games_count, games_wins_count, sparring_count, sparring_wins_count, rating FROM users;
+ALTER TABLE users DROP COLUMN games_count, games_wins_count, sparring_count, sparring_wins_count, rating;
+
 
 CREATE TABLE chat_messages (
     id SERIAL PRIMARY KEY,
@@ -25,7 +28,6 @@ CREATE TABLE chat_messages (
 
 
 
-// STATISTICS NOT USED
 CREATE TABLE statistics (
     id SERIAL PRIMARY KEY,
     user_id INT,
