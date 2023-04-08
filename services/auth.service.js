@@ -60,6 +60,8 @@ class AuthService {
         await tokenService.refreshToken(userFromDb.id, tokens.refreshToken);
 
         const userWithStatistics = statisticsService.addStatisticsDataToUser(userFromDb);
+        console.log(userWithStatistics);
+
         const userDto = userDtoMaker(userWithStatistics);
 
         return {message: `Success!`, data: {tokens, user: userDto}};

@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="changed cors">
-      <change afterPath="$PROJECT_DIR$/services/statistics.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added statistics table in dataBase">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/top.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/top.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dal.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dataBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/dataBase.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dbScheme.vsd" beforeDir="false" afterPath="$PROJECT_DIR$/db/dbScheme.vsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/test.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/test.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/top.service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,14 +72,7 @@
       <workItem from="1680427352115" duration="19759000" />
       <workItem from="1680709633323" duration="1178000" />
       <workItem from="1680795790347" duration="9633000" />
-      <workItem from="1680942436547" duration="16718000" />
-    </task>
-    <task id="LOCAL-00040" summary="added tests for webSocket">
-      <created>1680429762656</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1680429762656</updated>
+      <workItem from="1680942436547" duration="17364000" />
     </task>
     <task id="LOCAL-00041" summary="added tests for webSocket">
       <created>1680431143351</created>
@@ -429,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680811065611</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="added statistics table in dataBase">
+      <created>1680961696130</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1680961696131</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +439,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added auth and users endpoints." />
     <MESSAGE value="Added token.service" />
     <MESSAGE value="Added mail.service" />
     <MESSAGE value="Added added refreshToken, logout and ErrorProcessing" />
@@ -476,7 +463,8 @@
     <MESSAGE value="added tests for webSocket" />
     <MESSAGE value="added functions for create any connected to chat from single account." />
     <MESSAGE value="changed cors" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed cors" />
+    <MESSAGE value="added statistics table in dataBase" />
+    <option name="LAST_COMMIT_MESSAGE" value="added statistics table in dataBase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
