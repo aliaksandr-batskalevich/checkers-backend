@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added statistics table in dataBase">
+      <change afterPath="$PROJECT_DIR$/controllers/games.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routers/games.router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/games.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/auth.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/dal.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/dataBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/dataBase.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/dbScheme.vsd" beforeDir="false" afterPath="$PROJECT_DIR$/db/dbScheme.vsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middlewares/usersIdValidate.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/paramsIdValidate.middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/users.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/users.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/statistics.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/statistics.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,10 +43,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../checkers-frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../checkers" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\aliaksandr\studies\tests\checkers-backend\controllers" />
+      <recent name="D:\aliaksandr\studies\tests\checkers-backend\routers" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -73,14 +89,11 @@
       <workItem from="1680427352115" duration="19759000" />
       <workItem from="1680709633323" duration="1178000" />
       <workItem from="1680795790347" duration="9633000" />
-      <workItem from="1680942436547" duration="17703000" />
-    </task>
-    <task id="LOCAL-00042" summary="added tests for webSocket">
-      <created>1680431825360</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1680431825360</updated>
+      <workItem from="1680942436547" duration="21695000" />
+      <workItem from="1681031135681" duration="5337000" />
+      <workItem from="1681129995100" duration="10149000" />
+      <workItem from="1681201576351" duration="12019000" />
+      <workItem from="1681288519259" duration="7227000" />
     </task>
     <task id="LOCAL-00043" summary="added tests for webSocket">
       <created>1680433966354</created>
@@ -418,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680962536393</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="added statistics table in dataBase">
+      <created>1680962697457</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1680962697458</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,12 +494,6 @@
           <url>file://$PROJECT_DIR$/services/auth.service.js</url>
           <line>33</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/services/auth.service.js</url>
-          <line>62</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

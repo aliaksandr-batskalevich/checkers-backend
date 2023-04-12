@@ -81,6 +81,111 @@ class DAL {
         return result.rows[0];
     }
 
+    async incrementGamesCount(userId) {
+        await db.query(`UPDATE statistics SET games_count = games_count + 1 WHERE user_id = $1`, [userId]);
+    }
+
+    async incrementGamesWinsCount(userId) {
+        await db.query(`UPDATE statistics SET games_wins_count = games_wins_count + 1 WHERE user_id = $1`, [userId]);
+    }
+
+    async incrementSparringCount(userId) {
+        await db.query(`UPDATE statistics SET sparring_count = sparring_count + 1 WHERE user_id = $1`, [userId]);
+    }
+
+    async incrementSparringWinsCount(userId) {
+        await db.query(`UPDATE statistics SET sparring_wins_count = sparring_wins_count + 1 WHERE user_id = $1`, [userId]);
+    }
+
+    async updateUserRating(userId, rating) {
+        const result = await db.query(`UPDATE statistics SET rating = $2 WHERE user_id = $1 RETURNING games_count, games_wins_count, sparring_count, sparring_wins_count, rating`, [userId, rating]);
+
+        return result.rows[0];
+    }
+
+    // games
+    async createGame(userId, timeStart, level) {
+        // console.log(userId, timeStart, level);
+
+        const result = await db.query(`INSERT INTO games (user_id, time_start, level) VALUES ($1, $2, $3) RETURNING *`, [userId, timeStart, level]);
+
+        return result.rows[0];
+    }
+
+    async getGame(gameId) {
+        const result = await db.query(`SELECT * FROM games WHERE id = $1`, [gameId]);
+
+        return result.rows[0];
+    }
+
+    async getAllGames(userId, count = 4, page = 1) {
+        const totalCountResult = await db.query(`SELECT count(*) FROM games`);
+        const totalCount = totalCountResult.rows[0].count;
+
+        const offset = count * (page - 1);
+
+        const result = await db.query(`SELECT * FROM games WHERE user_id = $1 ORDER BY id DESC OFFSET $2 LIMIT $3`, [userId, offset, count]);
+
+        return {totalCount, games: result.rows};
+    }
+
+    async getInProgressGames(userId, count = 4, page = 1) {
+        const totalCountResult = await db.query(`SELECT count(*) FROM games WHERE time_end IS NULL`);
+        const totalCount = totalCountResult.rows[0].count;
+
+        const offset = count * (page - 1);
+
+        const result = await db.query(`SELECT * FROM games WHERE user_id = $1 AND time_end IS NULL ORDER BY id DESC OFFSET $2 LIMIT $3`, [userId, offset, count]);
+
+        return {totalCount, games: result.rows};
+    }
+
+    async getCompletedGames(userId, count = 4, page = 1) {
+        const totalCountResult = await db.query(`SELECT count(*) FROM games WHERE time_end IS NOT NULL`);
+        const totalCount = totalCountResult.rows[0].count;
+
+        const offset = count * (page - 1);
+
+        const result = await db.query(`SELECT * FROM games WHERE user_id = $1 AND time_end IS NOT NULL ORDER BY id DESC OFFSET $2 LIMIT $3`, [userId, offset, count]);
+
+        return {totalCount, games: result.rows};
+    }
+
+    async getSuccessfulGames(userId, count = 4, page = 1) {
+        const totalCountResult = await db.query(`SELECT count(*) FROM games WHERE is_won = true`);
+        const totalCount = totalCountResult.rows[0].count;
+
+        const offset = count * (page - 1);
+
+        const result = await db.query(`SELECT * FROM games WHERE user_id = $1 AND is_won = true ORDER BY id DESC OFFSET $2 LIMIT $3`, [userId, offset, count]);
+
+        return {totalCount, games: result.rows};
+    }
+
+    async finishGame(gameId, timeEnd, isWon) {
+        const result = await db.query(`UPDATE games SET time_end = $2, is_won = $3 WHERE id = $1 RETURNING *`, [gameId, timeEnd, isWon]);
+
+        return result.rows[0];
+    }
+
+    // game_progress
+    async createGameProgress(gameId, currentOrder = 'black', figuresJSON) {
+        const result = await db.query(`INSERT INTO game_progress (game_id, current_order, figures) VALUES ($1, $2, $3) RETURNING *`, [gameId, currentOrder, figuresJSON]);
+
+        return result.rows[0];
+    }
+
+    async getGameProgress(gameId) {
+        const result = await db.query(`SELECT * FROM game_progress WHERE game_id = $1`, [gameId]);
+
+        return result.rows[0];
+    }
+
+    async updateGameProgress(gameId, currentOrder, figuresJSON) {
+        const result = await db.query(`UPDATE game_progress SET current_order = $2, figures = $3 WHERE game_id = $1 RETURNING *`, [gameId, currentOrder, figuresJSON]);
+
+        return result.rows[0];
+    }
 
     // chat_messages
     async addChatMessage(author, authorId, message, date) {

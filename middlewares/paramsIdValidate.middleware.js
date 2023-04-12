@@ -1,6 +1,6 @@
 const {ApiError} = require('../exceptions/ApiError.js');
 
-const usersIdValidateMiddleware = (req, res, next) => {
+const paramsIdValidateMiddleware = (req, res, next) => {
     try {
         const id = req.params.id;
         if (!Number.isFinite(+id)) {
@@ -12,4 +12,4 @@ const usersIdValidateMiddleware = (req, res, next) => {
     }
 };
 
-module.exports =  usersIdValidateMiddleware;
+module.exports =  paramsIdValidateMiddleware;

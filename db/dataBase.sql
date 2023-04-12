@@ -6,16 +6,18 @@ CREATE TABLE users (
     refresh_token VARCHAR(255),
     activation_link VARCHAR(255),
     is_activated BOOLEAN DEFAULT false,
+);
+
+CREATE TABLE statistics (
+    id SERIAL PRIMARY KEY,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users (id),
     games_count INT DEFAULT 0,
     games_wins_count INT  DEFAULT 0,
     sparring_count INT DEFAULT 0,
     sparring_wins_count INT DEFAULT 0,
     rating INT DEFAULT 0
 );
-
-INSERT INTO statistics (user_id, games_count, games_wins_count, sparring_count, sparring_wins_count, rating) SELECT id, games_count, games_wins_count, sparring_count, sparring_wins_count, rating FROM users;
-ALTER TABLE users DROP COLUMN games_count, games_wins_count, sparring_count, sparring_wins_count, rating;
-
 
 CREATE TABLE chat_messages (
     id SERIAL PRIMARY KEY,
@@ -26,27 +28,27 @@ CREATE TABLE chat_messages (
     date TIMESTAMP NOT NULL
 );
 
-
-
-CREATE TABLE statistics (
+CREATE TABLE games (
     id SERIAL PRIMARY KEY,
     user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users (id), 
-    games_count INT DEFAULT 0,
-    games_wins_count INT  DEFAULT 0,
-    sparring_count INT DEFAULT 0,
-    sparring_wins_count INT DEFAULT 0,
-    rating INT DEFAULT 0
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    time_start TIMESTAMP NOT NULL,
+    time_end TIMESTAMP,
+    level INT,
+    is_won BOOLEAN NOT NULL DEFAULT false
+);
+
+CREATE TABLE game_progress (
+    id SERIAL PRIMARY KEY,
+    game_id INT,
+    FOREIGN KEY (game_id) REFERENCES games (id),
+    current_order VARCHAR(255),
+    figures JSON
 );
 
 
 
-
-
-
+CREATE USER alex WITH PASSWORD 'alex';
+ALTER USER alex SUPERUSER;
+INSERT INTO statistics (user_id, games_count, games_wins_count, sparring_count, sparring_wins_count, rating) SELECT id, games_count, games_wins_count, sparring_count, sparring_wins_count, rating FROM users;
 ALTER TABLE users ADD rating INT DEFAULT 0;
-ALTER TABLE users ALTER games_count SET DEFAULT 0;
-ALTER TABLE users ALTER games_wins_count SET DEFAULT 0;
-ALTER TABLE users ALTER sparring_count SET DEFAULT 0;
-ALTER TABLE users ALTER sparring_wins_count SET DEFAULT 0;
-ALTER TABLE users ALTER is_activated SET DEFAULT false;

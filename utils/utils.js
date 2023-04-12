@@ -1,11 +1,4 @@
-// const dotenv = require('dotenv');
-// const DAL = require("../db/dal.js");
-
-// dotenv.config();
-// const adminName = process.env.ADMIN_NAME || 'admin';
-// const adminId = +process.env.ADMIN_ID || 10;
-
-
+const {ApiError} = require("../exceptions/ApiError");
 const snakeToCamelCase = s => s.split('_').map((w, i) => i ? w.replace(/^[a-z]/, l => l.toUpperCase()) : w).join('');
 
 const objectKeysSnakeToCamelCaseMaker = (object) => {
@@ -20,7 +13,7 @@ const objectKeysSnakeToCamelCaseMaker = (object) => {
     return camelCaseObject;
 };
 
-exports.userDtoMaker = userDtoMaker = (user) => {
+exports.userDtoMaker = (user) => {
 
     // filter privat properties
     const {password, email, refresh_token, activation_link, ...userDto} = user;
@@ -28,6 +21,26 @@ exports.userDtoMaker = userDtoMaker = (user) => {
     const camelCaseUserDto = objectKeysSnakeToCamelCaseMaker(userDto);
 
     return camelCaseUserDto;
+};
+
+exports.gameDtoMaker = (game) => {
+
+    // filter privat properties
+    const {user_id, ...gameDto} = game;
+
+    const camelCaseGameDto = objectKeysSnakeToCamelCaseMaker(gameDto);
+
+    return camelCaseGameDto;
+};
+
+exports.gameProgressDtoMaker = (gameProgress) => {
+
+    // filter privat properties
+    const {id, game_id, ...gameProgressDto} = gameProgress;
+
+    const camelCaseGameProgressDto = objectKeysSnakeToCamelCaseMaker(gameProgressDto);
+
+    return camelCaseGameProgressDto;
 };
 
 exports.usersOnlineCreator = (sockets) => {
@@ -47,12 +60,4 @@ exports.dtoMessageCreator = (messageArr, usersOnlineArr) => {
     return JSON.stringify(objectToSend);
 };
 
-// exports.adminMessageCreator = async (message) => {
-//     const adminMessageArr = await DAL.addChatMessage(adminName, adminId, message, new Date().toUTCString());
-//     return adminMessageArr;
-// };
-
-// exports.userMessageCreator = async (username, userId, message) => {
-//     const userMessageArr = await DAL.addChatMessage(username, userId, message, new Date().toUTCString());
-//     return userMessageArr;
-// };
+exports.orderSwitcher = (order) => order === 'white' ? 'black' : 'white';
