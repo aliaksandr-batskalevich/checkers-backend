@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="added statistics table in dataBase">
-      <change afterPath="$PROJECT_DIR$/controllers/games.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/games.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/games.service.js" afterDir="false" />
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="App with games">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dal.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dataBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/dataBase.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dbScheme.vsd" beforeDir="false" afterPath="$PROJECT_DIR$/db/dbScheme.vsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/usersIdValidate.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/paramsIdValidate.middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/users.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/users.router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/statistics.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/statistics.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,14 +82,7 @@
       <workItem from="1681031135681" duration="5337000" />
       <workItem from="1681129995100" duration="10149000" />
       <workItem from="1681201576351" duration="12019000" />
-      <workItem from="1681288519259" duration="7227000" />
-    </task>
-    <task id="LOCAL-00043" summary="added tests for webSocket">
-      <created>1680433966354</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1680433966354</updated>
+      <workItem from="1681288519259" duration="8462000" />
     </task>
     <task id="LOCAL-00044" summary="added tests for webSocket">
       <created>1680434451395</created>
@@ -438,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680962697458</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="App with games">
+      <created>1681319290901</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1681319290901</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +449,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added token.service" />
     <MESSAGE value="Added mail.service" />
     <MESSAGE value="Added added refreshToken, logout and ErrorProcessing" />
     <MESSAGE value="bugFixing" />
@@ -485,7 +473,8 @@
     <MESSAGE value="added functions for create any connected to chat from single account." />
     <MESSAGE value="changed cors" />
     <MESSAGE value="added statistics table in dataBase" />
-    <option name="LAST_COMMIT_MESSAGE" value="added statistics table in dataBase" />
+    <MESSAGE value="App with games" />
+    <option name="LAST_COMMIT_MESSAGE" value="App with games" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
