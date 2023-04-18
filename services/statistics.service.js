@@ -35,7 +35,8 @@ class StatisticsService {
 
         const userStatistics = await this.getUserStatistics(userId);
         const {games_count, games_wins_count, sparring_count, sparring_wins_count} = userStatistics;
-        const newRating = Math.floor(games_wins_count / (games_count || 1) * games_count * gameFactor + sparring_wins_count / (sparring_count || 1) * sparring_count * sparringFactor);
+        const newRating = Math.floor(games_wins_count / (games_count || 1) * games_count * gameFactor
+            + sparring_wins_count / (sparring_count || 1) * sparring_count * sparringFactor);
         const newStatistics = await DAL.updateUserRating(userId, newRating);
 
         return newStatistics;

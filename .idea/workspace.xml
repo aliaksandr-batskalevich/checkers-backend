@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="App with games">
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Changed ratingCounter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/statistics.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/statistics.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +33,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../checkers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -83,13 +84,10 @@
       <workItem from="1681129995100" duration="10149000" />
       <workItem from="1681201576351" duration="12019000" />
       <workItem from="1681288519259" duration="8462000" />
-    </task>
-    <task id="LOCAL-00044" summary="added tests for webSocket">
-      <created>1680434451395</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1680434451395</updated>
+      <workItem from="1681321602759" duration="979000" />
+      <workItem from="1681331974272" duration="622000" />
+      <workItem from="1681374821299" duration="49000" />
+      <workItem from="1681376803087" duration="20000" />
     </task>
     <task id="LOCAL-00045" summary="added functions for create any connected to chat from single account.">
       <created>1680444891004</created>
@@ -427,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681319290901</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Changed ratingCounter">
+      <created>1681321696648</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1681321696649</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,7 +454,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added mail.service" />
     <MESSAGE value="Added added refreshToken, logout and ErrorProcessing" />
     <MESSAGE value="bugFixing" />
     <MESSAGE value="server before CORS middleware" />
@@ -474,7 +478,8 @@
     <MESSAGE value="changed cors" />
     <MESSAGE value="added statistics table in dataBase" />
     <MESSAGE value="App with games" />
-    <option name="LAST_COMMIT_MESSAGE" value="App with games" />
+    <MESSAGE value="Changed ratingCounter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed ratingCounter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -483,6 +488,11 @@
           <url>file://$PROJECT_DIR$/services/auth.service.js</url>
           <line>33</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/services/statistics.service.js</url>
+          <line>37</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

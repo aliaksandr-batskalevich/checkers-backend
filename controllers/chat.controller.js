@@ -71,27 +71,30 @@ class ChatController {
                         ws.send(dtoMessage);
                     });
                 }
-                });
+            });
 
             ws.on('close', async () => {
-                    // REMOVE SOCKET
-                    this.sockets = this.sockets.filter(socket => socket.id !== ws.id);
+                // UNAUTHORIZED USERS
+                if (!ws.id) return;
 
-                    // CREATE MESSAGE IF NO USERS SOCKET IN SOCKETS ARRAY
-                    if (!this.sockets.find(socket => socket.userId === ws.userId)) {
-                        const adminMessageArr = await chatService.adminMessageCreator(`${ws.username} left the chat!`);
+                // REMOVE SOCKET
+                this.sockets = this.sockets.filter(socket => socket.id !== ws.id);
 
-                        // SEND MESSAGE TO USERS
-                        if (this.sockets.length) {
-                            const usersOnlineArr = usersOnlineCreator(this.sockets);
-                            const chatObject = dtoMessageCreator(adminMessageArr, usersOnlineArr);
+                // CREATE MESSAGE IF NO USERS SOCKET IN SOCKETS ARRAY
+                if (!this.sockets.find(socket => socket.userId === ws.userId)) {
+                    const adminMessageArr = await chatService.adminMessageCreator(`${ws.username} left the chat!`);
 
-                            this.sockets.forEach(ws => {
-                                ws.send(chatObject);
-                            });
-                        }
+                    // SEND MESSAGE TO USERS
+                    if (this.sockets.length) {
+                        const usersOnlineArr = usersOnlineCreator(this.sockets);
+                        const chatObject = dtoMessageCreator(adminMessageArr, usersOnlineArr);
+
+                        this.sockets.forEach(ws => {
+                            ws.send(chatObject);
+                        });
                     }
-                });
+                }
+            });
 
         } catch (e) {
             console.log(e.message);
