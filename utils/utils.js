@@ -12,6 +12,7 @@ const objectKeysSnakeToCamelCaseMaker = (object) => {
 
     return camelCaseObject;
 };
+exports.objectKeysSnakeToCamelCaseMaker = objectKeysSnakeToCamelCaseMaker;
 
 exports.userDtoMaker = (user) => {
 

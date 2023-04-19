@@ -5,20 +5,24 @@ const {ApiError} = require('../exceptions/ApiError.js');
 
 class UsersService {
 
-    async getUserById(id) {
-        const user = await DAL.getUserById(id);
+    async getUserById(authUserId, userId) {
+
+        const user = await DAL.getUserById(userId);
         if (!user) {
             throw ApiError.BadRequestError(`No users with this ID!`);
         }
 
         const userWithStatistics = await statisticsService.addStatisticsDataToUser(user);
 
-        const userToSend = userDtoMaker(userWithStatistics);
+        const isFollowed = !!(await DAL.getUserSubscriber(userId, authUserId));
+
+        const userToSend = userDtoMaker({...userWithStatistics, isFollowed});
 
         return {message: `Success!`, data: {user: userToSend}};
+
     }
 
-    async getAllUsers(count, page) {
+    async getAllUsers(authUserId, count, page) {
 
         // GET users with statistics from DB
         const {users, totalCount} = await DAL.getAllUsersWithStatistics(count, page);
@@ -26,7 +30,13 @@ class UsersService {
             throw ApiError.BadRequestError(`No users in this page!`);
         }
 
-        const usersToSend = users.map(userDtoMaker);
+        const usersBySubscriber = await DAL.getUsersBySubscriber(authUserId);
+        const usersWithIsFollowed = users.map(user => {
+            const isFollowed = !!usersBySubscriber.find(u => u.user_id === user.id);
+            return {...user, isFollowed};
+        });
+
+        const usersToSend = usersWithIsFollowed.map(userDtoMaker);
 
         return {message: `Success`, data: {totalCount, users: usersToSend}};
     }
@@ -46,6 +56,7 @@ class UsersService {
         }
 
         await statisticsService.removeUserStatistics(id);
+        // await followService.removeUserSubscribers(id);
 
         return {message: `User ${deletedUser.username} deleted!`};
 

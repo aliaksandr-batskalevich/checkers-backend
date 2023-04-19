@@ -6,6 +6,7 @@ const testRouter = require('./routers/test.router.js');
 const authRouter = require('./routers/auth.router.js');
 const usersRouter = require('./routers/users.router.js');
 const topRouter = require('./routers/top.router.js');
+const followRouter = require('./routers/follow.router.js');
 const gamesRouter = require('./routers/games.router.js');
 const chatController = require('./controllers/chat.controller.js');
 const errorsMiddleware = require("./middlewares/errors.middleware.js");
@@ -42,6 +43,7 @@ app.use(logMiddleware);
 app.use('/api/test', testRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/follow', followRouter);
 app.use('/api/top', topRouter);
 app.use('/api/games', gamesRouter);
 

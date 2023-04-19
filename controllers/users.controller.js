@@ -1,10 +1,12 @@
 const usersService = require('../services/users.service.js');
 
 class UsersController {
+
     async getAllUsers(req, res, next) {
         try {
+            const authUserId = req.userData.id;
             const {count, page} = req.query;
-            const {message, data} = await usersService.getAllUsers(count, page);
+            const {message, data} = await usersService.getAllUsers(authUserId, count, page);
 
             res.json({message, data});
 
@@ -15,7 +17,9 @@ class UsersController {
 
     async getUser(req, res, next) {
         try {
-            const {message, data} = await usersService.getUserById(req.params.id);
+            const authUserId = req.userData.id;
+            const userId = req.params.id;
+            const {message, data} = await usersService.getUserById(authUserId, userId);
 
             res.json({message, data});
 

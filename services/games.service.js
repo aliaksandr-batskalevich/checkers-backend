@@ -28,6 +28,7 @@ class GamesService {
     }
 
     async getGames(userId, count, page, filter) {
+
         let data;
 
         switch (filter) {

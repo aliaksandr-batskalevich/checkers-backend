@@ -41,7 +41,7 @@ class DAL {
     }
 
     async getTopUsersWithStatistics(count = 10) {
-        const result = await db.query(`SELECT users.*, statistics.games_count, statistics.games_wins_count, statistics.sparring_count, statistics.sparring_wins_count, statistics.rating FROM users INNER JOIN statistics ON users.id = statistics.user_id ORDER BY rating DESC LIMIT $1`, [count]);
+        const result = await db.query(`SELECT users.*, statistics.subscribers_count, statistics.games_count, statistics.games_wins_count, statistics.sparring_count, statistics.sparring_wins_count, statistics.rating FROM users INNER JOIN statistics ON users.id = statistics.user_id ORDER BY rating DESC LIMIT $1`, [count]);
 
         return result.rows;
     }
@@ -81,6 +81,14 @@ class DAL {
         return result.rows[0];
     }
 
+    async incrementSubscribersCount(userId) {
+        await db.query(`UPDATE statistics SET subscribers_count = subscribers_count + 1 WHERE user_id = $1`, [userId]);
+    }
+
+    async decrementSubscribersCount(userId) {
+        await db.query(`UPDATE statistics SET subscribers_count = subscribers_count - 1 WHERE user_id = $1`, [userId]);
+    }
+
     async incrementGamesCount(userId) {
         await db.query(`UPDATE statistics SET games_count = games_count + 1 WHERE user_id = $1`, [userId]);
     }
@@ -98,9 +106,58 @@ class DAL {
     }
 
     async updateUserRating(userId, rating) {
-        const result = await db.query(`UPDATE statistics SET rating = $2 WHERE user_id = $1 RETURNING games_count, games_wins_count, sparring_count, sparring_wins_count, rating`, [userId, rating]);
+        const result = await db.query(`UPDATE statistics SET rating = $2 WHERE user_id = $1 RETURNING *`, [userId, rating]);
 
         return result.rows[0];
+    }
+
+    // subscriptions
+    async follow(userId, subscriberId, timeSubscribe) {
+       await db.query(`INSERT INTO subscriptions (user_id, subscriber_id, time_subscribe) VALUES ($1, $2, $3)`, [userId, subscriberId, timeSubscribe]);
+    }
+
+    async unFollow(userId, subscriberId) {
+        await db.query(`DELETE FROM subscriptions WHERE user_id = $1 AND subscriber_id = $2`, [userId, subscriberId]);
+    }
+
+    async getUserSubscriber(userId, subscriberId) {
+        const result = await db.query(`SELECT * FROM subscriptions WHERE user_id = $1 AND subscriber_id = $2`, [userId, subscriberId]);
+
+        return result.rows[0];
+    }
+
+    async getUserSubscribers(userId) {
+        const result = await db.query(`SELECT * FROM subscriptions WHERE user_id = $1`, [userId]);
+
+        return result.rows;
+    }
+
+    async getNumUserSubscribers(userId) {
+        const countResult = await db.query(`SELECT count(*) FROM subscriptions WHERE user_id = $1`, [userId]);
+
+        return countResult.rows[0].count;
+    }
+
+    async getUserSubscribers(userId) {
+        const result = await db.query(`SELECT * FROM subscriptions WHERE user_id = $1`, [userId]);
+
+        return result.rows;
+    }
+
+    async getUsersBySubscriber(subscriberId) {
+        const result = await db.query(`SELECT * FROM subscriptions WHERE subscriber_id = $1`, [subscriberId]);
+
+        return result.rows;
+    }
+
+    async getNumUsersBySubscriber(subscriberId) {
+        const countResult = await db.query(`SELECT count(*) FROM subscriptions WHERE subscriber_id = $1`, [subscriberId]);
+
+        return countResult.rows[0].count;
+    }
+
+    async removeUserSubscribers(userId) {
+        await db.query(`DELETE FROM subscriptions WHERE user_id = $1`, [userId]);
     }
 
     // games

@@ -12,11 +12,23 @@ CREATE TABLE statistics (
     id SERIAL PRIMARY KEY,
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users (id),
+    subscribers_count INT DEFAULT 0,
     games_count INT DEFAULT 0,
     games_wins_count INT  DEFAULT 0,
     sparring_count INT DEFAULT 0,
     sparring_wins_count INT DEFAULT 0,
     rating INT DEFAULT 0
+);
+
+ALTER TABLE statistics ADD subscribers_count INT DEFAULT 0;
+
+CREATE TABLE subscriptions (
+    id SERIAL PRIMARY KEY,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    subscriber_id INT,
+    FOREIGN KEY (subscriber_id) REFERENCES users (id),
+    time_subscribe TIMESTAMP
 );
 
 CREATE TABLE chat_messages (
@@ -45,7 +57,6 @@ CREATE TABLE game_progress (
     current_order VARCHAR(255),
     figures JSON
 );
-
 
 
 CREATE USER alex WITH PASSWORD 'alex';
