@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Changed ratingCounter">
-      <change afterPath="$PROJECT_DIR$/controllers/status.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/status.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/status.service.js" afterDir="false" />
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Added statuses">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/top.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/top.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dal.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dataBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/dataBase.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/dbScheme.vsd" beforeDir="false" afterPath="$PROJECT_DIR$/db/dbScheme.vsd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/~$$dbScheme.~vsd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/follow.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/follow.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/statistics.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/statistics.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../checkers-frontend" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -109,14 +98,8 @@
       <workItem from="1681374821299" duration="49000" />
       <workItem from="1681376803087" duration="20000" />
       <workItem from="1681811293316" duration="24021000" />
-      <workItem from="1681979054331" duration="20091000" />
-    </task>
-    <task id="LOCAL-00047" summary="added functions for create any connected to chat from single account.">
-      <created>1680445617006</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1680445617006</updated>
+      <workItem from="1681979054331" duration="21032000" />
+      <workItem from="1682030048619" duration="291000" />
     </task>
     <task id="LOCAL-00048" summary="added functions for create any connected to chat from single account.">
       <created>1680445746758</created>
@@ -454,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681916519595</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Added statuses">
+      <created>1682029114870</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1682029114870</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,7 +466,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added added refreshToken, logout and ErrorProcessing" />
     <MESSAGE value="bugFixing" />
     <MESSAGE value="server before CORS middleware" />
     <MESSAGE value="added functional for return users on pages" />
@@ -501,7 +490,8 @@
     <MESSAGE value="added statistics table in dataBase" />
     <MESSAGE value="App with games" />
     <MESSAGE value="Changed ratingCounter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed ratingCounter" />
+    <MESSAGE value="Added statuses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added statuses" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
