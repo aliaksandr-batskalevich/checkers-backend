@@ -209,7 +209,7 @@ class DAL {
     }
 
     async getAllGames(userId, count = 4, page = 1) {
-        const totalCountResult = await db.query(`SELECT count(*) FROM games`);
+        const totalCountResult = await db.query(`SELECT count(*) FROM games WHERE user_id = $1`, [userId]);
         const totalCount = totalCountResult.rows[0].count;
 
         const offset = count * (page - 1);
