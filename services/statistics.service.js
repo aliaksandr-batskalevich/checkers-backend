@@ -1,15 +1,16 @@
 const DAL = require('../db/dal.js');
 
 class StatisticsService {
-    _statisticsToSendMaker(userStatistics) {
-        const {id, user_id, ...restStatistics} = userStatistics;
 
-        return restStatistics;
+    statisticsToSendMaker(statistics) {
+        const {id, user_id, ...statisticsToSend} = statistics;
+
+        return statisticsToSend;
     }
 
     async createUserStatistics(user) {
         const createdUserStatistics = await DAL.createUserStatistics(user.id);
-        const statisticsToSend = this._statisticsToSendMaker(createdUserStatistics);
+        const statisticsToSend = this.statisticsToSendMaker(createdUserStatistics);
 
         return {...user, ...statisticsToSend};
     }
@@ -26,9 +27,30 @@ class StatisticsService {
 
     async addStatisticsDataToUser(user) {
         const userStatistics = await this._getUserStatistics(user.id);
-        const statisticsToSend = this._statisticsToSendMaker(userStatistics);
+        const statisticsToSend = this.statisticsToSendMaker(userStatistics);
 
         return {...user, ...statisticsToSend};
+    }
+
+    async addStatisticsDataToUsers(users) {
+        const usersIdArr = users.map(user => user.id);
+
+        const usersStatistics = await DAL.getUsersStatistics(usersIdArr);
+
+        const usersWithStatistics = users.map(user => {
+            const statistics = usersStatistics.find(us => us.user_id === user.id);
+            const statisticsToSend = this.statisticsToSendMaker(statistics);
+
+            return {...user, ...statisticsToSend};
+        });
+
+        return usersWithStatistics;
+    }
+
+    async getTopStatistics(count) {
+        const topStatistics = await DAL.getTopStatistics(count);
+
+        return topStatistics;
     }
 
     async _updateRating(userId) {
@@ -44,7 +66,7 @@ class StatisticsService {
             + subscribers_count * subscriberFactor);
 
         const newStatistics = await DAL.updateUserRating(userId, newRating);
-        const newStatisticsToSend = this._statisticsToSendMaker(newStatistics);
+        const newStatisticsToSend = this.statisticsToSendMaker(newStatistics);
 
         return newStatisticsToSend;
     }

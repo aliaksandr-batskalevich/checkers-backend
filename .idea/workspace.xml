@@ -2,18 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Changed ratingCounter">
-      <change afterPath="$PROJECT_DIR$/controllers/follow.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/follow.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/follow.service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/status.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routers/status.router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/status.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/users.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/top.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/top.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/dal.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/dataBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/dataBase.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/dbScheme.vsd" beforeDir="false" afterPath="$PROJECT_DIR$/db/dbScheme.vsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/~$$dbScheme.~vsd" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/games.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/games.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/follow.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/follow.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/statistics.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/statistics.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/users.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,16 +52,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/services" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/controllers" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\aliaksandr\studies\tests\checkers-backend\services" />
       <recent name="D:\aliaksandr\studies\tests\checkers-backend\controllers" />
       <recent name="D:\aliaksandr\studies\tests\checkers-backend\routers" />
+      <recent name="D:\aliaksandr\studies\tests\checkers-backend\services" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -107,14 +108,8 @@
       <workItem from="1681331974272" duration="622000" />
       <workItem from="1681374821299" duration="49000" />
       <workItem from="1681376803087" duration="20000" />
-      <workItem from="1681811293316" duration="22686000" />
-    </task>
-    <task id="LOCAL-00046" summary="added functions for create any connected to chat from single account.">
-      <created>1680445344996</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1680445344996</updated>
+      <workItem from="1681811293316" duration="24021000" />
+      <workItem from="1681979054331" duration="20091000" />
     </task>
     <task id="LOCAL-00047" summary="added functions for create any connected to chat from single account.">
       <created>1680445617006</created>
@@ -452,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681811795395</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Changed ratingCounter">
+      <created>1681916519595</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1681916519595</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,19 +513,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/services/statistics.service.js</url>
-          <line>40</line>
+          <line>62</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/services/statistics.service.js</url>
-          <line>39</line>
-          <properties lambdaOrdinal="-1" />
+          <line>61</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/services/statistics.service.js</url>
-          <line>36</line>
-          <properties lambdaOrdinal="-1" />
+          <line>58</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

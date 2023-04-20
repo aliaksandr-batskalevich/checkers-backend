@@ -8,6 +8,14 @@ CREATE TABLE users (
     is_activated BOOLEAN DEFAULT false,
 );
 
+CREATE TABLE statuses (
+    id SERIAL PRIMARY KEY,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    status VARCHAR(255),
+    time_status TIMESTAMP
+);
+
 CREATE TABLE statistics (
     id SERIAL PRIMARY KEY,
     user_id INT,
@@ -19,8 +27,6 @@ CREATE TABLE statistics (
     sparring_wins_count INT DEFAULT 0,
     rating INT DEFAULT 0
 );
-
-ALTER TABLE statistics ADD subscribers_count INT DEFAULT 0;
 
 CREATE TABLE subscriptions (
     id SERIAL PRIMARY KEY,
@@ -58,6 +64,8 @@ CREATE TABLE game_progress (
     figures JSON
 );
 
+
+SELECT users.id, users.username, array_agg(statuses.status) FROM users FULL JOIN statuses ON users.id = statuses.user_id GROUP BY users.id;
 
 CREATE USER alex WITH PASSWORD 'alex';
 ALTER USER alex SUPERUSER;

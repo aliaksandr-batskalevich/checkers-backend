@@ -28,20 +28,19 @@ class DAL {
         return result.rows[0];
     }
 
-    async getAllUsersWithStatistics(count = 4, page = 1) {
+    async getAllUsers(count = 4, page = 1) {
         const totalCountResult = await db.query(`SELECT count(*) FROM users`);
         const totalCount = totalCountResult.rows[0].count;
 
         const offset = count * (page - 1);
 
-        //INNER JOIN users & statistics tables by userId
-        const result = await db.query(`SELECT users.*, statistics.games_count, statistics.games_wins_count, statistics.sparring_count, statistics.sparring_wins_count, statistics.rating FROM users INNER JOIN statistics ON users.id = statistics.user_id ORDER BY id DESC OFFSET $1 LIMIT $2`, [offset, count]);
+        const result = await db.query(`SELECT * FROM users ORDER BY id DESC OFFSET $1 LIMIT $2`, [offset, count]);
 
         return {totalCount, users: result.rows};
     }
 
-    async getTopUsersWithStatistics(count = 10) {
-        const result = await db.query(`SELECT users.*, statistics.subscribers_count, statistics.games_count, statistics.games_wins_count, statistics.sparring_count, statistics.sparring_wins_count, statistics.rating FROM users INNER JOIN statistics ON users.id = statistics.user_id ORDER BY rating DESC LIMIT $1`, [count]);
+    async getUsersByIdArr(usersIdArr) {
+        const result = await db.query(`SELECT * FROM users WHERE id = ANY($1::int[])`, [usersIdArr]);
 
         return result.rows;
     }
@@ -63,6 +62,28 @@ class DAL {
         await db.query(`UPDATE users SET refresh_token = null WHERE id = $1`, [id]);
     }
 
+    // statuses
+    async createUserStatus(userId, status, time) {
+        const result = await db.query(`INSERT INTO statuses (user_id, status, time_status) VALUES ($1, $2, $3) RETURNING *`, [userId, status, time]);
+
+        return result.rows[0];
+    }
+
+    async getLastUserStatus(userId) {
+        const result = await db.query(`SELECT * FROM statuses WHERE user_id = $1 ORDER BY id DESC LIMIT 1`, [userId]);
+
+        return result.rows[0];
+    }
+
+    async getLastUsersStatuses(usersIdArr) {
+        const result = await db.query(`SELECT * FROM statuses WHERE user_id = ANY($1::int[]) ORDER BY id DESC`, [usersIdArr]);
+        const allUsersStatuses = result.rows;
+
+        // FILTER data with UNIQUE user_id
+        const lastUsersStatuses = allUsersStatuses.filter((us, index, array) => array.findIndex(s => s.user_id === us.user_id) === index);
+
+        return lastUsersStatuses;
+    }
 
     // statistics
     async createUserStatistics(userId) {
@@ -79,6 +100,18 @@ class DAL {
         const result = await db.query(`SELECT * FROM statistics WHERE user_id = $1`, [userId]);
 
         return result.rows[0];
+    }
+
+    async getUsersStatistics(usersIdArr) {
+        const result = await db.query(`SELECT * FROM statistics WHERE user_id = ANY($1::int[])`, [usersIdArr]);
+
+        return result.rows;
+    }
+
+    async getTopStatistics(count = 10) {
+        const result = await db.query(`SELECT * FROM statistics ORDER BY rating DESC LIMIT $1`, [count]);
+
+        return result.rows;
     }
 
     async incrementSubscribersCount(userId) {
@@ -113,7 +146,7 @@ class DAL {
 
     // subscriptions
     async follow(userId, subscriberId, timeSubscribe) {
-       await db.query(`INSERT INTO subscriptions (user_id, subscriber_id, time_subscribe) VALUES ($1, $2, $3)`, [userId, subscriberId, timeSubscribe]);
+        await db.query(`INSERT INTO subscriptions (user_id, subscriber_id, time_subscribe) VALUES ($1, $2, $3)`, [userId, subscriberId, timeSubscribe]);
     }
 
     async unFollow(userId, subscriberId) {

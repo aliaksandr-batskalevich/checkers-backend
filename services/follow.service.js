@@ -47,6 +47,12 @@ class FollowService {
         return {message: 'Success!', data};
     }
 
+    async addFollowedDataToUser(user, authUserId) {
+        const isFollowed = !!(await DAL.getUserSubscriber(user.id, authUserId));
+
+        return {...user, isFollowed};
+    }
+
     // async removeUserSubscribers(userId) {
     //     await DAL.removeUserSubscribers(userId);
     // }
