@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Added statuses">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Changed gamesCount" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,14 +97,7 @@
       <workItem from="1681811293316" duration="24021000" />
       <workItem from="1681979054331" duration="21032000" />
       <workItem from="1682030048619" duration="513000" />
-      <workItem from="1682030949796" duration="727000" />
-    </task>
-    <task id="LOCAL-00049" summary="added functions for create any connected to chat from single account.">
-      <created>1680446145591</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1680446145591</updated>
+      <workItem from="1682030949796" duration="1067000" />
     </task>
     <task id="LOCAL-00050" summary="added functions for create any connected to chat from single account.">
       <created>1680446257424</created>
@@ -444,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682030558520</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="Changed gamesCount">
+      <created>1682031869998</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1682031869999</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +464,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bugFixing" />
     <MESSAGE value="server before CORS middleware" />
     <MESSAGE value="added functional for return users on pages" />
     <MESSAGE value="change options of cookies" />
@@ -491,7 +488,8 @@
     <MESSAGE value="App with games" />
     <MESSAGE value="Changed ratingCounter" />
     <MESSAGE value="Added statuses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added statuses" />
+    <MESSAGE value="Changed gamesCount" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed gamesCount" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -220,7 +220,7 @@ class DAL {
     }
 
     async getInProgressGames(userId, count = 4, page = 1) {
-        const totalCountResult = await db.query(`SELECT count(*) FROM games WHERE time_end IS NULL`);
+        const totalCountResult = await db.query(`SELECT count(*) FROM games WHERE time_end IS NULL AND user_id = $1`, [userId]);
         const totalCount = totalCountResult.rows[0].count;
 
         const offset = count * (page - 1);
@@ -231,7 +231,7 @@ class DAL {
     }
 
     async getCompletedGames(userId, count = 4, page = 1) {
-        const totalCountResult = await db.query(`SELECT count(*) FROM games WHERE time_end IS NOT NULL`);
+        const totalCountResult = await db.query(`SELECT count(*) FROM games WHERE time_end IS NOT NULL AND user_id = $1`, [userId]);
         const totalCount = totalCountResult.rows[0].count;
 
         const offset = count * (page - 1);
@@ -242,7 +242,7 @@ class DAL {
     }
 
     async getSuccessfulGames(userId, count = 4, page = 1) {
-        const totalCountResult = await db.query(`SELECT count(*) FROM games WHERE is_won = true`);
+        const totalCountResult = await db.query(`SELECT count(*) FROM games WHERE is_won = true AND user_id = $1`, [userId]);
         const totalCount = totalCountResult.rows[0].count;
 
         const offset = count * (page - 1);
