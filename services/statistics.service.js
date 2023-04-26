@@ -1,4 +1,8 @@
 const DAL = require('../db/dal.js');
+const dotenv = require("dotenv");
+const {ApiError} = require('../exceptions/ApiError.js');
+
+dotenv.config();
 
 class StatisticsService {
 
@@ -6,6 +10,13 @@ class StatisticsService {
         const {id, user_id, ...statisticsToSend} = statistics;
 
         return statisticsToSend;
+    }
+
+    gameRatingCounter(count, wins, factor) {
+        console.log('rating counter');
+        const gameRating = factor * count * (1 - (count - wins) / (count || 1)) ** 2;
+        console.log(gameRating);
+        return gameRating;
     }
 
     async createUserStatistics(user) {
@@ -54,16 +65,36 @@ class StatisticsService {
     }
 
     async _updateRating(userId) {
-        const gameFactor = 10;
-        const sparringFactor = 100;
-        const subscriberFactor = 20;
+        console.log('update rating');
+
+        const gameJuniorFactor = +process.env.GAME_JUNIOR_FACTOR || 1;
+        const gameMiddleFactor = +process.env.GAME_MIDDLE_FACTOR || 5;
+        const gameSeniorFactor = +process.env.GAME_SENIOR_FACTOR || 10;
+        const sparringFactor = +process.env.SPARRING_FACTOR || 50;
+        const subscriberFactor = +process.env.SUBSCRIBER_FACTOR || 10;
 
         const userStatistics = await this._getUserStatistics(userId);
-        const {subscribers_count, games_count, games_wins_count, sparring_count, sparring_wins_count} = userStatistics;
-        const newRating = Math.floor(
-            games_wins_count / (games_count || 1) * games_count * gameFactor
-            + sparring_wins_count / (sparring_count || 1) * sparring_count * sparringFactor
-            + subscribers_count * subscriberFactor);
+        const {
+            subscribers_count,
+
+            games_junior_count,
+            games_middle_count,
+            games_senior_count,
+            games_junior_wins_count,
+            games_middle_wins_count,
+            games_senior_wins_count,
+
+            sparring_count,
+            sparring_wins_count
+        } = userStatistics;
+
+        const newRating = (
+            this.gameRatingCounter(games_junior_count, games_junior_wins_count, gameJuniorFactor)
+            + this.gameRatingCounter(games_middle_count, games_middle_wins_count, gameMiddleFactor)
+            + this.gameRatingCounter(games_senior_count, games_senior_wins_count, gameSeniorFactor)
+            + this.gameRatingCounter(sparring_count, sparring_wins_count, sparringFactor)
+            + subscribers_count * subscriberFactor)
+            .toFixed(2);
 
         const newStatistics = await DAL.updateUserRating(userId, newRating);
         const newStatisticsToSend = this.statisticsToSendMaker(newStatistics);
@@ -87,15 +118,45 @@ class StatisticsService {
         return newStatisticsToSend;
     }
 
-    async incrementGamesCount(userId) {
-        await DAL.incrementGamesCount(userId);
+    async incrementGamesCount(userId, level) {
+        switch (level) {
+            case 1: {
+                await DAL.incrementGamesJuniorCount(userId);
+                break;
+            }
+            case 2: {
+                await DAL.incrementGamesMiddleCount(userId);
+                break;
+            }
+            case 3: {
+                await DAL.incrementGamesSeniorCount(userId);
+                break;
+            }
+            default: throw ApiError.BadRequestError('Invalid level value.');
+        }
+
+        console.log('inc');
         const newStatisticsToSend = await this._updateRating(userId);
 
         return newStatisticsToSend;
     }
 
-    async incrementGamesWinsCount(userId) {
-        await DAL.incrementGamesWinsCount(userId);
+    async incrementGamesWinsCount(userId, level) {
+        switch (level) {
+            case 1: {
+                await DAL.incrementGamesJuniorWinsCount(userId);
+                break;
+            }
+            case 2: {
+                await DAL.incrementGamesMiddleWinsCount(userId);
+                break;
+            }
+            case 3: {
+                await DAL.incrementGamesSeniorWinsCount(userId);
+                break;
+            }
+            default: throw ApiError.BadRequestError('Invalid level value.');
+        }
         const newStatisticsToSend = await this._updateRating(userId);
 
         return newStatisticsToSend;

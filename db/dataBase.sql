@@ -21,12 +21,26 @@ CREATE TABLE statistics (
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users (id),
     subscribers_count INT DEFAULT 0,
-    games_count INT DEFAULT 0,
-    games_wins_count INT  DEFAULT 0,
+    games_junior_count INT DEFAULT 0,
+    games_middle_count INT DEFAULT 0,
+    games_senior_count INT DEFAULT 0,
+    games_junior_wins_count INT  DEFAULT 0,
+    games_middle_wins_count INT  DEFAULT 0,
+    games_senior_wins_count INT  DEFAULT 0,
     sparring_count INT DEFAULT 0,
     sparring_wins_count INT DEFAULT 0,
-    rating INT DEFAULT 0
+    rating NUMERIC DEFAULT 0
 );
+
+ALTER TABLE statistics ALTER COLUMN rating TYPE NUMERIC;
+ALTER TABLE statistics RENAME COLUMN games_count TO games_junior_count;
+ALTER TABLE statistics RENAME COLUMN games_wins_count TO games_junior_wins_count;
+ALTER TABLE statistics ADD games_middle_count INT DEFAULT 0;
+ALTER TABLE statistics ADD games_middle_wins_count INT DEFAULT 0;
+ALTER TABLE statistics ADD games_senior_count INT DEFAULT 0;
+ALTER TABLE statistics ADD games_senior_wins_count INT DEFAULT 0;
+
+
 
 CREATE TABLE subscriptions (
     id SERIAL PRIMARY KEY,

@@ -122,12 +122,28 @@ class DAL {
         await db.query(`UPDATE statistics SET subscribers_count = subscribers_count - 1 WHERE user_id = $1`, [userId]);
     }
 
-    async incrementGamesCount(userId) {
-        await db.query(`UPDATE statistics SET games_count = games_count + 1 WHERE user_id = $1`, [userId]);
+    async incrementGamesJuniorCount(userId) {
+        await db.query(`UPDATE statistics SET games_junior_count = games_junior_count + 1 WHERE user_id = $1`, [userId]);
     }
 
-    async incrementGamesWinsCount(userId) {
-        await db.query(`UPDATE statistics SET games_wins_count = games_wins_count + 1 WHERE user_id = $1`, [userId]);
+    async incrementGamesJuniorWinsCount(userId) {
+        await db.query(`UPDATE statistics SET games_junior_wins_count = games_junior_wins_count + 1 WHERE user_id = $1`, [userId]);
+    }
+
+    async incrementGamesMiddleCount(userId) {
+        await db.query(`UPDATE statistics SET games_middle_count = games_middle_count + 1 WHERE user_id = $1`, [userId]);
+    }
+
+    async incrementGamesMiddleWinsCount(userId) {
+        await db.query(`UPDATE statistics SET games_middle_wins_count = games_middle_wins_count + 1 WHERE user_id = $1`, [userId]);
+    }
+
+    async incrementGamesSeniorCount(userId) {
+        await db.query(`UPDATE statistics SET games_senior_count = games_senior_count + 1 WHERE user_id = $1`, [userId]);
+    }
+
+    async incrementGamesSeniorWinsCount(userId) {
+        await db.query(`UPDATE statistics SET games_senior_wins_count = games_senior_wins_count + 1 WHERE user_id = $1`, [userId]);
     }
 
     async incrementSparringCount(userId) {

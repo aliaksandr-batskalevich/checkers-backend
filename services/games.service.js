@@ -20,7 +20,7 @@ class GamesService {
         const createdGameProgress = await DAL.createGameProgress(createdGame.id, currentOrder, figures);
 
         // change statistics
-        await statisticService.incrementGamesCount(userId);
+        await statisticService.incrementGamesCount(userId, level);
 
         const createdGameDto = gameDtoMaker(createdGame);
 
@@ -108,7 +108,7 @@ class GamesService {
                 updatedProgress = progress;
 
                 // change statistics
-                isWon && await statisticService.incrementGamesWinsCount(userId);
+                isWon && await statisticService.incrementGamesWinsCount(userId, game.level);
 
                 break;
             }
