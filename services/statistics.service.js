@@ -13,9 +13,7 @@ class StatisticsService {
     }
 
     gameRatingCounter(count, wins, factor) {
-        console.log('rating counter');
         const gameRating = factor * count * (1 - (count - wins) / (count || 1)) ** 2;
-        console.log(gameRating);
         return gameRating;
     }
 
@@ -65,7 +63,6 @@ class StatisticsService {
     }
 
     async _updateRating(userId) {
-        console.log('update rating');
 
         const gameJuniorFactor = +process.env.GAME_JUNIOR_FACTOR || 1;
         const gameMiddleFactor = +process.env.GAME_MIDDLE_FACTOR || 5;
@@ -135,7 +132,6 @@ class StatisticsService {
             default: throw ApiError.BadRequestError('Invalid level value.');
         }
 
-        console.log('inc');
         const newStatisticsToSend = await this._updateRating(userId);
 
         return newStatisticsToSend;

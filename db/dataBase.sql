@@ -32,16 +32,6 @@ CREATE TABLE statistics (
     rating NUMERIC DEFAULT 0
 );
 
-ALTER TABLE statistics ALTER COLUMN rating TYPE NUMERIC;
-ALTER TABLE statistics RENAME COLUMN games_count TO games_junior_count;
-ALTER TABLE statistics RENAME COLUMN games_wins_count TO games_junior_wins_count;
-ALTER TABLE statistics ADD games_middle_count INT DEFAULT 0;
-ALTER TABLE statistics ADD games_middle_wins_count INT DEFAULT 0;
-ALTER TABLE statistics ADD games_senior_count INT DEFAULT 0;
-ALTER TABLE statistics ADD games_senior_wins_count INT DEFAULT 0;
-
-
-
 CREATE TABLE subscriptions (
     id SERIAL PRIMARY KEY,
     user_id INT,
@@ -85,3 +75,4 @@ CREATE USER alex WITH PASSWORD 'alex';
 ALTER USER alex SUPERUSER;
 INSERT INTO statistics (user_id, games_count, games_wins_count, sparring_count, sparring_wins_count, rating) SELECT id, games_count, games_wins_count, sparring_count, sparring_wins_count, rating FROM users;
 ALTER TABLE users ADD rating INT DEFAULT 0;
+ALTER TABLE statistics ALTER COLUMN rating TYPE NUMERIC;
