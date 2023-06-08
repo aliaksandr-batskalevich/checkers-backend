@@ -9,6 +9,14 @@ class TestController {
             next(error);
         }
     }
+    async createTest(req, res, next) {
+        try {
+            const result = await testService.createTest();
+            res.json(result);
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 module.exports = new TestController();

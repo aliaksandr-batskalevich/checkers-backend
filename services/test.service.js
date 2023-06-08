@@ -9,6 +9,16 @@ class TestService {
         const usersToSend = users.map(userDtoMaker);
         return {message: `Success`, data: {totalCount, users: usersToSend}};
     }
+
+    async createTest() {
+        console.log(`Test request!`);
+        const data = await new Promise((res, rej) => {
+            const timeoutId = setTimeout(() => {
+                res({});
+            }, 3000);
+        });
+        return {message: `Success!`, data};
+    }
 }
 
 module.exports = new TestService();

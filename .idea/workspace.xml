@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Changed gamesCount">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Changed statistics Counter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dal.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/dal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dataBase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/dataBase.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/games.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/games.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/statistics.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/statistics.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/test.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/test.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/test.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/test.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/test.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/test.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../checkers-frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -106,21 +104,13 @@
       <workItem from="1682030048619" duration="513000" />
       <workItem from="1682030949796" duration="1067000" />
       <workItem from="1682112420632" duration="506000" />
-      <workItem from="1682521663902" duration="8818000" />
-    </task>
-    <task id="LOCAL-00051" summary="added functions for create any connected to chat from single account.">
-      <created>1680446596413</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1680446596414</updated>
-    </task>
-    <task id="LOCAL-00052" summary="added functions for create any connected to chat from single account.">
-      <created>1680446785341</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1680446785342</updated>
+      <workItem from="1682521663902" duration="10402000" />
+      <workItem from="1683284258124" duration="50000" />
+      <workItem from="1683284629621" duration="12000" />
+      <workItem from="1683625564223" duration="334000" />
+      <workItem from="1685308413994" duration="676000" />
+      <workItem from="1686159401755" duration="57000" />
+      <workItem from="1686254989256" duration="330000" />
     </task>
     <task id="LOCAL-00053" summary="added functions for create any connected to chat from single account.">
       <created>1680446971703</created>
@@ -451,7 +441,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682112577270</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Changed statistics Counter">
+      <created>1682537584281</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1682537584281</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Changed statistics Counter">
+      <created>1682537722987</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1682537722987</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +477,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="server before CORS middleware" />
     <MESSAGE value="added functional for return users on pages" />
     <MESSAGE value="change options of cookies" />
     <MESSAGE value="added router for tests" />
@@ -498,7 +501,8 @@
     <MESSAGE value="Changed ratingCounter" />
     <MESSAGE value="Added statuses" />
     <MESSAGE value="Changed gamesCount" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed gamesCount" />
+    <MESSAGE value="Changed statistics Counter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed statistics Counter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -507,24 +511,6 @@
           <url>file://$PROJECT_DIR$/services/auth.service.js</url>
           <line>33</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/services/statistics.service.js</url>
-          <line>17</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/services/statistics.service.js</url>
-          <line>67</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/services/statistics.service.js</url>
-          <line>137</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
