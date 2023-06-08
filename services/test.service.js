@@ -14,7 +14,7 @@ class TestService {
         console.log(`Test request!`);
         const data = await new Promise((res, rej) => {
             const timeoutId = setTimeout(() => {
-                res({});
+                res({fullMessage: 'You have successfully subscribed to the email newsletter'});
             }, 3000);
         });
         return {message: `Success!`, data};

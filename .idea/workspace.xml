@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Changed statistics Counter">
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Added POST method in test endpoint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/test.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/test.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/test.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routers/test.router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/test.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/test.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,14 +107,7 @@
       <workItem from="1683625564223" duration="334000" />
       <workItem from="1685308413994" duration="676000" />
       <workItem from="1686159401755" duration="57000" />
-      <workItem from="1686254989256" duration="330000" />
-    </task>
-    <task id="LOCAL-00053" summary="added functions for create any connected to chat from single account.">
-      <created>1680446971703</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1680446971703</updated>
+      <workItem from="1686254989256" duration="1922000" />
     </task>
     <task id="LOCAL-00054" summary="added functions for create any connected to chat from single account.">
       <created>1680449747723</created>
@@ -455,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682537722987</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Added POST method in test endpoint">
+      <created>1686255442271</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1686255442271</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +474,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added functional for return users on pages" />
     <MESSAGE value="change options of cookies" />
     <MESSAGE value="added router for tests" />
     <MESSAGE value="added test for db" />
@@ -502,7 +498,8 @@
     <MESSAGE value="Added statuses" />
     <MESSAGE value="Changed gamesCount" />
     <MESSAGE value="Changed statistics Counter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed statistics Counter" />
+    <MESSAGE value="Added POST method in test endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added POST method in test endpoint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
