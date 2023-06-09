@@ -22,7 +22,7 @@ class TestService {
     }
 
     async errorTest() {
-        ApiError.BadRequestError(`Some error (test) :)`);
+        return ApiError.BadRequestError(`Some error (test) :)`);
     }
 
 }
