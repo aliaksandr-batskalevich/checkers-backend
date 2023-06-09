@@ -1,5 +1,4 @@
 const testService = require('../services/test.service.js');
-const {ApiError} = require('../exceptions/ApiError.js');
 
 class TestController {
     async getTest(req, res, next) {
@@ -22,12 +21,9 @@ class TestController {
 
     async errorTest(req, res, next) {
         try {
-            // const result = await testService.errorTest();
-            // res.json(result);
-            throw ApiError.BadRequestError('Error from controller!');
-
+            const result = await testService.errorTest();
+            res.json(result);
         } catch (error) {
-            console.log('catch');
             next(error);
         }
     }
