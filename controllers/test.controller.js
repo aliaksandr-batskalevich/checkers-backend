@@ -21,6 +21,7 @@ class TestController {
 
     async errorTest(req, res, next) {
         try {
+            console.log('errorController');
             const result = await testService.errorTest();
             res.json(result);
         } catch (error) {
