@@ -24,7 +24,8 @@ class TestController {
         try {
             // const result = await testService.errorTest();
             // res.json(result);
-            ApiError.BadRequestError('Error from controller!');
+            throw ApiError.BadRequestError('Error from controller!');
+
         } catch (error) {
             console.log('catch');
             next(error);
