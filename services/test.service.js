@@ -1,5 +1,6 @@
 const DAL = require('../db/dal.js');
 const {userDtoMaker} = require("../utils/utils.js");
+const {ApiError} = require('../exceptions/ApiError.js');
 
 
 class TestService {
@@ -19,6 +20,11 @@ class TestService {
         });
         return {message: `Success!`, data};
     }
+
+    async errorTest() {
+        ApiError.BadRequestError(`Some error (test) :)`);
+    }
+
 }
 
 module.exports = new TestService();
