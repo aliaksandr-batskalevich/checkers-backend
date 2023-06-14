@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Added POST method in test endpoint">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Added simple-offline/users endpoints" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,15 +38,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/routers" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\aliaksandr\studies\tests\checkers-backend\controllers" />
       <recent name="D:\aliaksandr\studies\tests\checkers-backend\routers" />
+      <recent name="D:\aliaksandr\studies\tests\checkers-backend\controllers" />
       <recent name="D:\aliaksandr\studies\tests\checkers-backend\services" />
     </key>
   </component>
@@ -108,13 +106,7 @@
       <workItem from="1685308413994" duration="676000" />
       <workItem from="1686159401755" duration="57000" />
       <workItem from="1686254989256" duration="4447000" />
-    </task>
-    <task id="LOCAL-00063" summary="changed cors">
-      <created>1680798282235</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1680798282235</updated>
+      <workItem from="1686775796068" duration="605000" />
     </task>
     <task id="LOCAL-00064" summary="changed cors">
       <created>1680798796791</created>
@@ -452,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686302700915</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="Added simple-offline/users endpoints">
+      <created>1686776351138</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1686776351139</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +473,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change options of cookies" />
     <MESSAGE value="added router for tests" />
     <MESSAGE value="added test for db" />
     <MESSAGE value="added postgres password" />
@@ -499,7 +497,8 @@
     <MESSAGE value="Changed gamesCount" />
     <MESSAGE value="Changed statistics Counter" />
     <MESSAGE value="Added POST method in test endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added POST method in test endpoint" />
+    <MESSAGE value="Added simple-offline/users endpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added simple-offline/users endpoints" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
