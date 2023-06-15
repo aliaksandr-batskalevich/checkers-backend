@@ -15,6 +15,7 @@ const gamesRouter = require('./routers/games.router.js');
 
 const testRouter = require('./routers/test.router.js');
 const testUsersRouter = require('./routers/testUsers.router.js');
+const testFollowRouter = require('./routers/testfollow.router.js');
 
 const chatController = require('./controllers/chat.controller.js');
 
@@ -57,6 +58,7 @@ app.use('/api/test', testRouter);
 
 // endpoints for test-task Gavrysh
 app.use('/api/simple-offline/users', testUsersRouter);
+app.use('/api/simple-offline/follow', testFollowRouter);
 
 // errorsMiddleware
 app.use(errorsMiddleware);
