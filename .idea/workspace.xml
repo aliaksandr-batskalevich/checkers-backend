@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Added simple-offline/follow endpoint">
-      <change afterPath="$PROJECT_DIR$/controllers/testFollow.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers/testfollow.router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,14 +109,7 @@
       <workItem from="1686159401755" duration="57000" />
       <workItem from="1686254989256" duration="4447000" />
       <workItem from="1686775796068" duration="1799000" />
-      <workItem from="1686822208018" duration="369000" />
-    </task>
-    <task id="LOCAL-00065" summary="changed cors">
-      <created>1680799246777</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1680799246777</updated>
+      <workItem from="1686822208018" duration="1666000" />
     </task>
     <task id="LOCAL-00066" summary="changed cors">
       <created>1680799420130</created>
@@ -457,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686776958162</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="Added simple-offline/follow endpoint">
+      <created>1686822619847</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1686822619847</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -6,9 +6,7 @@ const {ApiError} = require('../exceptions/ApiError.js');
 class TestService {
     async getTest() {
         console.log(`Test request!`);
-        const {users, totalCount} = await DAL.getAllUsersWithStatistics();
-        const usersToSend = users.map(userDtoMaker);
-        return {message: `Success`, data: {totalCount, users: usersToSend}};
+        return {message: `Success`, data: {}};
     }
 
     async createTest() {
