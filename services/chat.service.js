@@ -11,15 +11,15 @@ class ChatService {
     constructor() {
         dotenv.config();
         this.adminName = process.env.ADMIN_NAME || 'admin';
-        this.adminId = +process.env.ADMIN_ID || 10;
+        this.adminId = +process.env.ADMIN_ID || 1;
     }
 
-    async adminMessageCreator(message) {
+    async createAdminMessage(message) {
         const adminMessageArr = await DAL.addChatMessage(this.adminName, this.adminId, message, new Date().toUTCString());
         return adminMessageArr;
     }
 
-    async userMessageCreator(username, userId, message) {
+    async createUserMessage(username, userId, message) {
         const userMessageArr = await DAL.addChatMessage(username, userId, message, new Date().toUTCString());
         return userMessageArr;
     }

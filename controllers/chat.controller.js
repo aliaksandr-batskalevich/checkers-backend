@@ -43,7 +43,7 @@ class ChatController {
 
                         if (!this.sockets.find(socket => socket.userId === ws.userId)) {
                             // create admin message JOINED
-                            newMessageArr = await chatService.adminMessageCreator(`${username} joined!`)
+                            newMessageArr = await chatService.createAdminMessage(`${username} joined!`);
                         }
 
                         this.sockets.push(ws);
@@ -55,7 +55,7 @@ class ChatController {
                             ws.close();
                         }
 
-                        newMessageArr = await chatService.userMessageCreator(ws.username, ws.userId, data.message);
+                        newMessageArr = await chatService.createUserMessage(ws.username, ws.userId, data.message);
                         break;
                     }
                     case 'ping':
@@ -82,7 +82,7 @@ class ChatController {
 
                 // CREATE MESSAGE IF NO USERS SOCKET IN SOCKETS ARRAY
                 if (!this.sockets.find(socket => socket.userId === ws.userId)) {
-                    const adminMessageArr = await chatService.adminMessageCreator(`${ws.username} left the chat!`);
+                    const adminMessageArr = await chatService.createAdminMessage(`${ws.username} left the chat!`);
 
                     // SEND MESSAGE TO USERS
                     if (this.sockets.length) {
