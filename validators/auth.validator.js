@@ -6,7 +6,7 @@ class AuthValidator {
     }
 
     getPasswordRegistrationValidator() {
-        return check('password', 'Password length must be at least 4 characters!').isString().isLength({min: 4});
+        return check('password', 'Password length must be between 6 and 10 characters long!').isString().isLength({min: 6, max: 10});
     }
 
     getEmailRegistrationValidator() {

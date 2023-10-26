@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Changed IP in .env">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="54b8ea1e-5ef8-43d6-b287-565916cdd2bf" name="Changes" comment="Fix chat bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/chat.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/chat.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/chat.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/chat.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,14 +110,8 @@
       <workItem from="1686254989256" duration="4447000" />
       <workItem from="1686775796068" duration="1799000" />
       <workItem from="1686822208018" duration="3292000" />
-      <workItem from="1696354575252" duration="954000" />
-    </task>
-    <task id="LOCAL-00068" summary="changed cors">
-      <created>1680799900230</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1680799900230</updated>
+      <workItem from="1696354575252" duration="1719000" />
+      <workItem from="1697803009027" duration="1060000" />
     </task>
     <task id="LOCAL-00069" summary="changed cors">
       <created>1680800374086</created>
@@ -458,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696159705627</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="Fix chat bug">
+      <created>1696355707846</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1696355707847</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +478,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added postgres password" />
     <MESSAGE value="added logMiddleware" />
     <MESSAGE value="added cors" />
     <MESSAGE value="switch off nodemailer" />
@@ -505,7 +502,8 @@
     <MESSAGE value="Added simple-offline/users endpoints" />
     <MESSAGE value="Added simple-offline/follow endpoint" />
     <MESSAGE value="Changed IP in .env" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed IP in .env" />
+    <MESSAGE value="Fix chat bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix chat bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
